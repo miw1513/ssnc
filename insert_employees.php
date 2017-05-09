@@ -262,8 +262,7 @@
                 VALUES ($ID,$Date,$Salary,0,0,0,0,0,0,0,0)";
       }
       else {
-        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
-                ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
+        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
         $connect->query($sql);
       }
