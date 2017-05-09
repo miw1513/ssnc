@@ -16,39 +16,9 @@
       }
     </style>
   <body>
-    <?php include 'connect.php'; ?>
+
     <form class="" action="#" method="post" enctype="multipart/form-data">
-
-
-    <!-- Nav bar-->
-      <nav class="nav has-shadow">
-    <div class="container">
-      <div class="nav-left">
-        <a class="nav-item is-tab is-hidden-mobile is-active">SSNC-Civil</a>
-        <a class="nav-item is-tab is-hidden-mobile">ข้อมูลพนักงาน</a>
-        <a class="nav-item is-tab is-hidden-mobile">เพิ่มข้อมูลพนักงาน</a>
-        <a class="nav-item is-tab is-hidden-mobile">About</a>
-      </div>
-      <span class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <div class="nav-right nav-menu">
-        <a class="nav-item is-tab is-hidden-tablet is-active">Home</a>
-        <a class="nav-item is-tab is-hidden-tablet">Features</a>
-        <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
-        <a class="nav-item is-tab is-hidden-tablet">About</a>
-        <a class="nav-item is-tab">
-          <figure class="image is-16x16" style="margin-right: 8px;">
-
-          </figure>
-          Profile
-        </a>
-        <a class="nav-item is-tab">Log out</a>
-      </div>
-    </div>
-  </nav>
+      <?php include 'template/header.php'; ?>
     <br>
     <div class="container">
       <div class="columns">
@@ -217,6 +187,7 @@
       <center><input type="submit" name="submit" value="เพิ่มข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ล้างข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
+    <br><br><br>
     <?php
     if ($_POST) {
 
@@ -250,10 +221,40 @@
       }
       //End Upload
 
+      //INSERT EMP
       $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID)
+<<<<<<< HEAD
               VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','D001')";
               echo "$sql";
+=======
+              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','Flame','D001')";
+>>>>>>> a8b2b5c5eef22928c8228de849632639d5dea39c
       $connect->query($sql);
+
+
+      $Date = date("my");
+      $table = "time";
+      $Salary = $_POST['Salary'];
+      if ($Work == "รายวัน") {
+        //INSERT SALARY
+        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
+                ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
+                VALUES ('$ID','$Date','$Salary','0','0','0','0','0','0','0','0')";
+        $connect->query($sql);
+        //INSERT TIME
+        $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
+                VALUES ('$ID','$Date','0','0','0','0')";
+        $connect->query($sql);
+      }
+      else {
+        //INSERT SALARY
+        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
+                VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
+        //INSERT TIME
+        $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
+                VALUES ('$ID','$Date','1','0','0','0')";
+        $connect->query($sql);
+      }
 
 
     }
