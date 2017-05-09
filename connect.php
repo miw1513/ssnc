@@ -8,5 +8,6 @@
   if ($connect->connect_errno) {
     printf("Connect failed: %s\n", $connect->connect_error);
 }
+date_default_timezone_set("Asia/Bangkok");
 
  ?>
