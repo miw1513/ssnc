@@ -282,8 +282,23 @@
 
       $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID)
               VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','Flame','D001')";
-              echo "$sql";
       $connect->query($sql);
+
+      $Date = date("my");
+      $Salary = $_POST['Salary'];
+      if ($Work = "รายวัน") {
+        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
+                ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
+                VALUES ($ID,$Date,$Salary,0,0,0,0,0,0,0,0)";
+      }
+      else {
+        $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
+                ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
+                VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
+        $connect->query($sql);
+      }
+      echo "$sql";
+
 
 
     }
