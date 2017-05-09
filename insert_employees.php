@@ -188,6 +188,7 @@
       <center><input type="submit" name="submit" value="เพิ่มข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ล้างข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
+    <br><br><br>
     <?php
     if ($_POST) {
 
