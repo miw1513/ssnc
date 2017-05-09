@@ -26,38 +26,35 @@
         </div>
       </section>
     </div>
-    <div class="column is-4">
-      <section class="hero is-fullheight">
-
-        <div class="hero-body">
-          <div class="container">
-            <div class="columns">
-              <div class="column is-8 is-offset-2">
-                <div class="login-form">
-                  <p class="control has-icon has-icon-right">
-                    <input class="input email-input" type="text" placeholder="SSNC-CIVIL">
-                    <span class="icon user">
-                      <i class="fa fa-user"></i>
-                    </span>
-                  </p>
-                  <p class="control has-icon has-icon-right">
-                    <input class="input password-input" type="password" placeholder="●●●●●●●">
-                    <span class="icon user">
-                      <i class="fa fa-lock"></i>
-                    </span>
-                  </p>
-                  <p class="control login">
-                    <input type="submit" value="เข้าสู่ระบบ" class="button is-primary is-outlined" style="width : 100%">
-                  </p>
+      <div class="column is-4">
+        <section class="hero is-fullheight">
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns">
+                <div class="column is-8 is-offset-2">
+                  <div class="login-form">
+                    <p class="control has-icon has-icon-right">
+                      <input class="input email-input" type="text" placeholder="SSNC-CIVIL">
+                      <span class="icon user">
+                        <i class="fa fa-user"></i>
+                      </span>
+                    </p>
+                    <p class="control has-icon has-icon-right">
+                      <input class="input password-input" type="password" placeholder="●●●●●●●">
+                      <span class="icon user">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                    </p>
+                    <p class="control login">
+                      <input type="submit" value="เข้าสู่ระบบ" class="button is-primary is-outlined" style="width : 100%">
+                    </p>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-  </div>
-
-</body>
+  </body>
 </html>
