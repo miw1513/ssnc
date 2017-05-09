@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>SSNC-Civil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
   </head>
     <style media="screen">
       .Pic{
@@ -19,7 +18,7 @@
   <body>
 
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php include 'template/header.php'; ?>
+      <?php include 'header.php'; ?>
     <br>
     <div class="container">
       <div class="columns">
@@ -251,22 +250,25 @@
 
       //End Upload
 
+      //INSERT EMP
       $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID)
               VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','Flame','D001')";
       $connect->query($sql);
 
+      //INSERT SALARY
       $Date = date("my");
       $Salary = $_POST['Salary'];
-      if ($Work = "รายวัน") {
+      if ($Work == "รายวัน") {
         $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
                 ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
-                VALUES ($ID,$Date,$Salary,0,0,0,0,0,0,0,0)";
+                VALUES ('$ID','$Date','$Salary','0','0','0','0','0','0','0','0')";
       }
       else {
         $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
-        $connect->query($sql);
+
       }
+      $connect->query($sql);
       echo "$sql";
 
 
@@ -276,6 +278,5 @@
 
 
      ?>
-     <?php include 'template/footer.php'; ?>
   </body>
 </html>
