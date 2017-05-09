@@ -217,18 +217,12 @@
 
       if(copy($_FILES['fileToUpload']['tmp_name'], $target_file)){
 
-        echo "อัพเดทรูปภาพสำเร็จ";
       }
       //End Upload
 
       //INSERT EMP
       $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID)
-<<<<<<< HEAD
-              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','D001')";
-              echo "$sql";
-=======
-              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','Flame','D001')";
->>>>>>> a8b2b5c5eef22928c8228de849632639d5dea39c
+              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','$Dep')";
       $connect->query($sql);
 
 
@@ -241,6 +235,7 @@
                 ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','0','0','0','0','0')";
         $connect->query($sql);
+        echo "$sql";
         //INSERT TIME
         $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
                 VALUES ('$ID','$Date','0','0','0','0')";
@@ -250,6 +245,8 @@
         //INSERT SALARY
         $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
+        $connect->query($sql);
+                echo "$sql";
         //INSERT TIME
         $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
                 VALUES ('$ID','$Date','1','0','0','0')";
