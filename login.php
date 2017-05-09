@@ -35,7 +35,7 @@
               <div class="column is-8 is-offset-2">
                 <div class="login-form">
                   <p class="control has-icon has-icon-right">
-                    <input class="input email-input" type="text" placeholder="jsmith@example.org">
+                    <input class="input email-input" type="text" placeholder="SSNC-CIVIL">
                     <span class="icon user">
                       <i class="fa fa-user"></i>
                     </span>
