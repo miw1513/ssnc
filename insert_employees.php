@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>SSNC-Civil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
   </head>
     <style media="screen">
       .Pic{
@@ -18,7 +19,7 @@
   <body>
 
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php include 'header.php'; ?>
+      <?php include 'template/header.php'; ?>
     <br>
     <div class="container">
       <div class="columns">
@@ -276,5 +277,6 @@
 
 
      ?>
+     <?php include 'template/footer.php'; ?>
   </body>
 </html>
