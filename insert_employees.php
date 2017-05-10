@@ -74,11 +74,11 @@
               <div class="column is-three-quarters">
                   <select class="input is-small" name="Dep" style="width : 60%" >
                     <?php
-                      $sql = "SELECT Dep_Name FROM department ORDER BY Dep_ID";
+                      $sql = "SELECT * FROM department ORDER BY Dep_ID";
                       $result = $connect->query($sql);
                       while($row = $result->fetch_array()){
                     ?>
-                        <option value=<?php echo $row['Dep_Name']; ?>><?php echo $row['Dep_Name']; ?></option>
+                        <option value=<?php echo $row['Dep_ID']; ?>><?php echo $row['Dep_Name']; ?></option>
                     <?php
                       }
                      ?>
@@ -235,7 +235,6 @@
                 ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','0','0','0','0','0')";
         $connect->query($sql);
-        echo "$sql";
         //INSERT TIME
         $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
                 VALUES ('$ID','$Date','0','0','0','0')";
@@ -246,7 +245,6 @@
         $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
                 VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
         $connect->query($sql);
-                echo "$sql";
         //INSERT TIME
         $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
                 VALUES ('$ID','$Date','1','0','0','0')";
