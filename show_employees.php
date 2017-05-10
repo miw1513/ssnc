@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -8,8 +9,9 @@
   </head>
   <body>
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php session_start();
+      <?php
       include 'template/header.php'; ?>
+      <?php session_start(); ?>
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>

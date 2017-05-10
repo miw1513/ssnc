@@ -21,7 +21,7 @@
     <a class="nav-item is-tab is-hidden-tablet" href="insert_employees.php">ข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-tablet" href="insert_employees.php">เพิ่มข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-tablet">About</a>
-    <a class="nav-item is-tab" href="./login.php">Log out</a>
+    <a class="nav-item is-tab" href="logout.php">Log out</a>
   </div>
 </div>
 </nav>
