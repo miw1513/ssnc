@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <?php include 'template/header.php';?>
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php session_start(); ?>
-      <?php include 'template/header.php';?>
+
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
