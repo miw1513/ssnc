@@ -314,6 +314,7 @@
             }
 
         }
+        header('Location:show_employees.php');
         ?>
     <br><br><br>
   </body>
