@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require 'template/header.php';
  ?>
 
 <form method="GET">
@@ -25,8 +25,9 @@ while ($select_month = $query_select_month->fetch_assoc()){
 <?php
  if (isset($_GET['monthyear'])){
    $monthyear = $_GET['monthyear'];
+
  ?>
-<table>
+<table class="table">
   <tr>
     <th>Salary_ID</th>
     <th>ชื่อพนักงาน</th>
@@ -49,9 +50,16 @@ while ($select_month = $query_select_month->fetch_assoc()){
   </tr>
 <?php
 
-   $sql_salary = 'SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.MonthYear = time.MonthYear  WHERE time.MonthYear = "'.$monthyear.'"';
+   $sql_salary = 'SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID WHERE MonthYear = "'.$monthyear.'" ';
    $query_salary = $connect->query($sql_salary);
-   while ($select_salary = $query_salary->fetch_assoc() ){
+
+   $sql_select_time = ' SELECT * FROM time WHERE MonthYear = "'.$monthyear.'" ';
+   $query_select_time = $connect->query($sql_select_time);
+
+
+   while ($select_salary = $query_salary->fetch_assoc() AND $select_time = $query_select_time->fetch_assoc()){
+
+
 
   ?>
 
@@ -67,13 +75,13 @@ while ($select_month = $query_select_month->fetch_assoc()){
       <td> <?php echo $select_salary['Salary_OT30']; ?></td>
       <td> <?php echo $select_salary['Salary_Balance']; ?></td>
       <td> <?php echo $select_salary['Salary_Vat']; ?></td>
-      <td> <?php echo $select_salary['Salary_insurance']; ?></td>
+      <td> <?php echo $select_salary['Salary_Insurance']; ?></td>
       <td> <?php echo $select_salary['Salary_Paid']; ?></td>
       <td> <?php echo $select_salary['Salary_Fund']; ?></td>
-      <td> <?php echo $select_salary['Time_Work']; ?></td>
-      <td> <?php echo $select_salary['Time_OT15']; ?></td>
-      <td> <?php echo $select_salary['Time_OT20']; ?></td>
-      <td> <?php echo $select_salary['Time_OT30']; ?></td>
+      <td> <?php echo $select_time['Time_Work']; ?></td>
+      <td> <?php echo $select_time['Time_OT15']; ?></td>
+      <td> <?php echo $select_time['Time_OT20']; ?></td>
+      <td> <?php echo $select_time['Time_OT30']; ?></td>
     </tr>
 
 
