@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <?php include 'template/header.php';?>
     <form class="" action="#" method="post" enctype="multipart/form-data">
+<<<<<<< HEAD
       
       <?php include 'template/header.php';?>
+=======
+
+>>>>>>> 38ac0708ad4c9619d5a6bb8d461f9955cd55a167
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
@@ -312,8 +317,9 @@
                     WHERE Time_ID = '$ID'";
               $connect->query($sql);
             }
-
+            header('Location:show_employees.php');
         }
+
         ?>
     <br><br><br>
   </body>
