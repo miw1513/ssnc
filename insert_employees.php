@@ -131,7 +131,7 @@
             <br>
             <div class="columns">
               <!-- <input type="file" accept="image/*" name= "fileToUpload" id="fileToUpload" onchange="loadFile(event)" class="button is-primary is-outlined"> -->
-              <input type="file" name="fileToUpload" id="fileToUpload">
+              <input type="file" name="fileToUpload"  accept="image/*" onchange="loadFile(event)">
                 <script>
                   var loadFile = function(event) {
                     var output = document.getElementById('output');
