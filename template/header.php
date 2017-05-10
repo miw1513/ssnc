@@ -1,5 +1,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
-<?php include 'connect.php'; ?>
+<?php include 'connect.php';
+
+?>
 <!-- Nav bar-->
   <nav class="nav has-shadow">
 <div class="container">

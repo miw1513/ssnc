@@ -8,7 +8,8 @@
   </head>
   <body>
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php include 'template/header.php'; ?>
+      <?php session_start();
+      include 'template/header.php'; ?>
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
