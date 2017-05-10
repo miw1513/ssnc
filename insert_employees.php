@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>SSNC-Civil</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+<?php include 'template/header.php' ?>
+
 
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php
-      session_start();
-      include 'template/header.php';
-      ?>
+
     <br>
     <?php if (  $_SESSION['login'] == 'yes'){
 

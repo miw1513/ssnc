@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
   $host = "198.46.144.201";
   $user = "khaopodc_ssnc";
   $pass = "khaopodc";
