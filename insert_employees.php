@@ -18,8 +18,14 @@
   <body>
 
     <form class="" action="#" method="post" enctype="multipart/form-data">
-      <?php include 'template/header.php'; ?>
+      <?php
+      session_start();
+      include 'template/header.php';
+      ?>
     <br>
+    <?php if (  $_SESSION['login'] == 'yes'){
+
+    ?>
     <div class="container">
       <div class="columns">
           <div class="column is-half">
@@ -187,6 +193,7 @@
       <center><input type="submit" name="submit" value="เพิ่มข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ล้างข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
+    <?php } ?>
     <br><br><br>
     <?php
     if ($_POST) {
