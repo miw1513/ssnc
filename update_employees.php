@@ -24,9 +24,9 @@
               <div class="column is-three-quarters">
 
                   <?php
-                    $em_id = $_GET['ID'];
+                    $ID = $_GET['ID'];
                     ?>
-                    <label class="label"><?php echo "$em_id"; ?></label>
+                    <label class="label"><?php echo "$ID"; ?></label>
                 </select>
 
               </div>
@@ -46,8 +46,7 @@
             $Gender ="";
             $Status = "";
             $IMG ="";
-              $ID = $_POST['Emp_ID'];
-              $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID = '$em_id'";
+              $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID = '$ID'";
               $result = $connect->query($sql);
               while($row = $result->fetch_array()){
                 $Name = $row['Emp_Name'];
@@ -72,7 +71,7 @@
                 <label class="label">ชื่อพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
             <div class="columns">
@@ -80,7 +79,7 @@
                 <label class="label">เลขประจำตัวประชาชน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                <input type="text" name="Emp_NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
             <div class="columns">
@@ -88,7 +87,7 @@
                 <label class="label">วันเดือนปีเกิด</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="date" name="Emp_DOB" value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="date" name="Emp_DOB"  value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
             <div class="columns">
@@ -97,8 +96,13 @@
               </div>
               <div class="column is-three-quarters">
                 <select name="Emp_Work" class="input is-small" required="" style="width : 60%">
-                  <option value="รายวัน">รายวัน</option>
-                  <option value="รายเดือน">รายเดือน</option>
+                  <?php if ($Work == "รายเดือน"): ?>
+                    <option value="รายเดือน">รายเดือน</option>
+                    <option value="รายวัน">รายวัน</option>
+                    <?php else: ?>
+                      <option value="รายวัน">รายวัน</option>
+                      <option value="รายเดือน">รายเดือน</option>
+                    <?php endif; ?>
                 </select>
               </div>
             </div>
@@ -125,7 +129,7 @@
                 <label class="label">เงินเดือน</label>
               </div>
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Salary; ?>" name="Emp_Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="number" value="<?php echo $Salary; ?>" name="Emp_Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" >
 
               </div>
               <div class="column is-one-quarter">
@@ -137,7 +141,7 @@
                 <label class="label">โรคประจำตัว</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
             <div class="columns">
@@ -146,7 +150,7 @@
               </div>
 
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" >
               </div>
               <div class="column is-one-quarter">
                   <label class="label">คน</label>
@@ -158,7 +162,7 @@
                 <label class="label">วันที่เริ่มทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="date" name="Emp_StrDate" value="<?php echo $StrDate; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="date" name="Emp_StrDate" value="<?php echo $StrDate; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
           </div>
@@ -181,10 +185,18 @@
                 <label class="label">เพศ</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="radio" name="Emp_Gender" value="ชาย" checked="">
-                ชาย
-                <input type="radio" name="Emp_Gender" value="หญิง">
-                หญิง
+                <?php if ($Gender == "ชาย"): ?>
+                  <input type="radio" name="Emp_Gender" value="ชาย" checked>
+                  ชาย
+                  <input type="radio" name="Emp_Gender" value="หญิง">
+                  หญิง
+                  <?php else: ?>
+                    <input type="radio" name="Emp_Gender" value="ชาย" >
+                    ชาย
+                    <input type="radio" name="Emp_Gender" value="หญิง" checked>
+                    หญิง
+                <?php endif; ?>
+
               </div>
             </div>
             <div class="colomns">
@@ -192,7 +204,7 @@
                   <label class="label">ที่อยู่</label>
               </div>
               <div class="columns">
-                  <textarea class="textarea" name ="Emp_Add" style="width : 60%" <?php echo $readonly; ?>><?php echo $Add; ?></textarea>
+                  <textarea class="textarea" name ="Emp_Add" style="width : 60%" ><?php echo $Add; ?></textarea>
               </div>
             </div>
             <br>
@@ -201,7 +213,7 @@
                 <label class="label">โทรศัพท์</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
+                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" >
               </div>
             </div>
             <div class="columns">
@@ -236,12 +248,13 @@
             $Emp_Work = $_POST['Emp_Work'];
             $Emp_Add = $_POST['Emp_Add'];
             $Emp_Tel = $_POST['Emp_Tel'];
-            $Status = $_POST['Emp_Status'];
-            $Emp_Status = $_POST['Emp_Disease'];
+            $Emp_Status = $_POST['Emp_Status'];
+            $Emp_Disease = $_POST['Emp_Disease'];
             $Emp_StrDate = $_POST['Emp_StrDate'];
             $Emp_Gender = $_POST['Emp_Gender'];
             $Dep_ID = $_POST['Dep_ID'];
             $Emp_Child = $_POST['Emp_Child'];
+            $Salary = $_POST['Emp_Salary'];
             $target_dir = "image/member/";
             $randomfile = 1; //ยังไม่ได้ใช้
             $insert_picture = "image/member/";
@@ -258,38 +271,47 @@
             }
             //End Upload
 
-            //INSERT EMP
-            // $sql = "UPDATE  employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID,Emp_Child)
-            //         VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','$Dep','$Child')";
-            // $connect->query($sql);
-            $sql ="UPDATE employees SET Emp_ID"
-
-
-            $Date = date("my");
-            $table = "time";
-            $Salary = $_POST['Salary'];
-            if ($Work == "รายวัน") {
-              //INSERT SALARY
-              $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance
-                      ,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
-                      VALUES ('$ID','$Date','$Salary','0','0','0','0','0','0','0','0')";
+            $insert_picture = $IMG;
+            $time = "time";
+            $sql ="UPDATE employees SET
+                  Emp_Name = '$Emp_Name',
+                  Emp_NID = '$Emp_NID',
+                  Emp_DOB = '$Emp_DOB',
+                  Emp_Work = '$Emp_Work',
+                  Emp_Add = '$Emp_Add',
+                  Emp_Tel = '$Emp_Tel',
+                  Emp_Status = '$Emp_Status',
+                  Emp_Disease = '$Emp_Disease',
+                  Emp_Child = '$Emp_Child',
+                  Emp_StrDate = '$Emp_StrDate',
+                  Emp_Gender = '$Emp_Gender',
+                  Emp_IMG = '$insert_picture',
+                  Dep_ID = '$Dep_ID'
+                  WHERE Emp_ID = '$ID'";
+            $connect->query($sql);
+            if ($Emp_Work == "รายวัน") {
+              $sql ="UPDATE salary SET
+                    Salary_Money = '$Salary',
+                    Salary_Balance = '0'
+                    WHERE Salary_ID = '$ID'";
               $connect->query($sql);
-              //INSERT TIME
-              $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
-                      VALUES ('$ID','$Date','0','0','0','0')";
+              $sql ="UPDATE $time SET
+                    Time_Work = '0'
+                    WHERE Time_ID = '$ID'";
               $connect->query($sql);
+
             }
             else {
-              //INSERT SALARY
-              $sql = "INSERT INTO salary (Salary_ID,MonthYear,Salary_Money,Salary_OT15,Salary_OT20,Salary_OT30,Salary_Balance,Salary_Vat,Salary_Insurance,Salary_Paid,Salary_Fund)
-                      VALUES ('$ID','$Date','$Salary','0','0','0','$Salary','0','0','0','0')";
+              $sql ="UPDATE salary SET
+                    Salary_Money = '$Salary',
+                    Salary_Balance = '$Salary'
+                    WHERE Salary_ID = '$ID'";
               $connect->query($sql);
-              //INSERT TIME
-              $sql = "INSERT INTO $table (Time_ID,MonthYear,Time_Work,Time_OT15,Time_OT20,Time_OT30)
-                      VALUES ('$ID','$Date','1','0','0','0')";
+              $sql ="UPDATE $time SET
+                    Time_Work = '1'
+                    WHERE Time_ID = '$ID'";
               $connect->query($sql);
             }
-
 
         }
         ?>
