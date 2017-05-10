@@ -70,7 +70,7 @@
           </div>
         </div>
           <div class="column is-two-third">
-            <br><br>
+            <br>
             <div class="columns">
               <div class="column is-one-third">
 
@@ -110,6 +110,14 @@
               </div>
               <div class="column is-half">
                 <input type="number" name="" class="input is-small is-focused" style="width : 80%" readonly> บาท
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-one-third">
+                <label class="label">ชั่วโมงทำงาน</label>
+              </div>
+              <div class="column is-half">
+                <input type="number" name="" class="input is-small is-focused" style="width : 80%" readonly> ชั่วโมง
               </div>
             </div>
             <div class="columns">
