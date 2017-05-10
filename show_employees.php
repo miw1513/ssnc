@@ -11,7 +11,7 @@
     <form class="" action="#" method="post" enctype="multipart/form-data">
       <?php
       include 'template/header.php'; ?>
-      <?php session_start(); ?>
+      
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>

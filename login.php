@@ -59,7 +59,7 @@
       </div>
     </form>
     <?php
-    session_start();
+    
     if($_POST){
       $username = $_POST['user'];
       $password2 = $_POST['password'];
