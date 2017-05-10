@@ -184,7 +184,13 @@
       <center><input type="submit" name="submit" value="เพิ่มข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ล้างข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
-    <?php } ?>
+    <?php }
+    else {
+      echo "<script type='text/javascript'>";
+      echo "window.location = 'login.php'";
+      echo "</script>";
+    }
+    ?>
     <br><br><br>
     <?php
     if ($_POST) {
