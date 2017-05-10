@@ -312,9 +312,9 @@
                     WHERE Time_ID = '$ID'";
               $connect->query($sql);
             }
-
+            header('Location:show_employees.php');
         }
-        header('Location:show_employees.php');
+
         ?>
     <br><br><br>
   </body>
