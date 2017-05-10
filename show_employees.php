@@ -12,6 +12,9 @@
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
+    <?php
+        $readonly = "readonly"
+     ?>
     <div class="container">
       <div class="columns">
           <div class="column is-half">
@@ -21,7 +24,7 @@
                 <label class="label">รหัสพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <select class="input is-small" name="Emp_ID" style="width : 60%" >
+                <select class="input is-small" name="Emp_ID" style="width : 60%" <?php echo $readonly; ?>>
                   <?php
                     $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID ORDER BY Emp_ID";
                     $result = $connect->query($sql);
@@ -77,7 +80,7 @@
                 <label class="label">ชื่อพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%">
+                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -85,7 +88,7 @@
                 <label class="label">เลขประจำตัวประชาชน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%">
+                <input type="text" name="NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -93,7 +96,7 @@
                 <label class="label">วันเดือนปีเกิด</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_DOB" value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%">
+                  <input type="text" name="Emp_DOB" value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -101,7 +104,7 @@
                 <label class="label">ประเภทการทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Work" value="<?php echo $Work; ?>" class="input is-small"  style="width : 60%">
+                <input type="text" name="Work" value="<?php echo $Work; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -119,7 +122,7 @@
                         }
                       }
                      ?>
-                  <input type="text" name="Dep" value="<?php echo $DepName; ?>" class="input is-small"  style="width : 60%">
+                  <input type="text" name="Dep" value="<?php echo $DepName; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -127,7 +130,7 @@
                 <label class="label">เงินเดือน</label>
               </div>
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Salary; ?>" name="Salary" min="0" step="0.01" class="input is-small"  style="width : 60%">
+                  <input type="number" value="<?php echo $Salary; ?>" name="Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
 
               </div>
               <div class="column is-one-quarter">
@@ -139,7 +142,7 @@
                 <label class="label">โรคประจำตัว</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%">
+                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -148,7 +151,7 @@
               </div>
 
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%">
+                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
               <div class="column is-one-quarter">
                   <label class="label">คน</label>
@@ -160,7 +163,7 @@
                 <label class="label">วันที่เริ่มทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="date" name="Emp_StrDate" value="<?php echo $StrDate; ?>" class="input is-small"  style="width : 60%">
+                  <input type="date" name="Emp_StrDate" value="<?php echo $StrDate; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
           </div>
@@ -173,7 +176,7 @@
                 <label class="label">เพศ</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Gender" value="<?php echo $Gender; ?>" class="input is-small"  style="width : 60%">
+                <input type="text" name="Gender" value="<?php echo $Gender; ?>" class="input is-small"  style="width : 40%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="colomns">
@@ -181,7 +184,7 @@
                   <label class="label">ที่อยู่</label>
               </div>
               <div class="columns">
-                  <textarea class="textarea" name ="Emp_Add" style="width : 60%"><?php echo $Add; ?></textarea>
+                  <textarea class="textarea" name ="Emp_Add" style="width : 60%" <?php echo $readonly; ?>><?php echo $Add; ?></textarea>
               </div>
             </div>
             <br>
@@ -190,7 +193,7 @@
                 <label class="label">โทรศัพท์</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%">
+                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
             <div class="columns">
@@ -198,12 +201,12 @@
                 <label class="label">สถานะภาพ</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Status" value="<?php echo $Status; ?>" class="input is-small"  style="width : 60%">
+                <input type="text" name="Status" value="<?php echo $Status; ?>" class="input is-small"  style="width : 60%" <?php echo $readonly; ?>>
               </div>
             </div>
           </div>
       </div>
-      <center><input type="submit" name="submit" value="แก้ไขข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger">
+      <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined">แก้ไข</button></a> <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
     <?php }
