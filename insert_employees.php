@@ -203,7 +203,7 @@
       $StrDate = $_POST['Emp_StrDate'];
       $Gender = $_POST['Emp_Gender'];
       $Dep = $_POST['Dep'];
-
+      $Child = $_POST['Emp_Child'];
       $target_dir = "image/member/";
       $randomfile = 1; //ยังไม่ได้ใช้
       $insert_picture = "image/member/";
@@ -221,8 +221,8 @@
       //End Upload
 
       //INSERT EMP
-      $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID)
-              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','$Dep')";
+      $sql = "INSERT INTO employees (Emp_ID,Emp_Name,Emp_NID,Emp_DOB,Emp_Work,Emp_Add,Emp_Tel,Emp_Status,Emp_Disease,Emp_StrDate,Emp_Gender,Emp_IMG,Dep_ID,Emp_Child)
+              VALUES ('$ID','$Name','$NID','$DOB','$Work','$Add','$Tel','$Status','$Disease','$StrDate','$Gender','$insert_picture','$Dep','$Child')";
       $connect->query($sql);
 
 
