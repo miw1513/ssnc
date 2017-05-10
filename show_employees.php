@@ -9,6 +9,8 @@
   <body>
     <form class="" action="#" method="post" enctype="multipart/form-data">
       <?php include 'template/header.php'; ?>
+      <?php if (  $_SESSION['login'] == 'yes'){
+      ?>
     <br>
     <div class="container">
       <div class="columns">
@@ -204,6 +206,13 @@
       <center><input type="submit" name="submit" value="แก้ไขข้อมูล" class="button is-primary is-outlined"> <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger">
     </div>
     </form>
+    <?php }
+    else {
+      echo "<script type='text/javascript'>";
+      echo "window.location = 'login.php'";
+      echo "</script>";
+    }
+    ?>
     <br><br><br>
   </body>
 </html>
