@@ -31,19 +31,36 @@
               <div id="table-scroll" style="height:400px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
                   <tr>
+                    <th><input type="checkbox" name="chkall" value="">All</th>
                     <th>รหัสพนักงาน</th>
                     <th>ชื่อ - นามสกุล</th>
+                    <th>แผนก</th>
+                    <th>การทำงาน</th>
+                    <th>รายได้</th>
+                    <th>OT*1.5</th>
+                    <th>OT*2.0</th>
+                    <th>OT*3.0</th>
+                    <th>รายได้สุทธิ</th>
                   </tr>
                   <?php
                   if($_POST){
                   $monthyear =  $_POST['monthyear'];
-                  $sql = "SELECT * FROM employees";
+                  $sql = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID INNER JOIN department ON employees.Dep_ID = department.Dep_ID
+                          WHERE salary.MonthYear = '$monthyear'";
                   $result = $connect->query($sql);
                   while($row = $result->fetch_array()){
                     ?>
                     <tr>
-                      <td><a href="?ID=<?php echo $row['Emp_ID']; ?>"><?php echo $row['Emp_ID']; ?></a></td>
+                      <td><input type="checkbox" name="<?php echo $row['Emp_ID']; ?>" value="<?php echo $row['Emp_ID']; ?>"></td>
+                      <td><?php echo $row['Emp_ID']; ?></td>
                       <td><?php echo $row['Emp_Name']; ?></td>
+                      <td><?php echo $row['Dep_Name']; ?></td>
+                      <td><?php echo $row['Emp_Work']; ?></td>
+                      <td><?php echo $row['Salary_Money']; ?></td>
+                      <td><?php echo $row['Salary_OT15']; ?></td>
+                      <td><?php echo $row['Salary_OT20']; ?></td>
+                      <td><?php echo $row['Salary_OT30']; ?></td>
+                      <td><?php echo $row['Salary_Balance']; ?></td>
                     </tr>
               <?php
                 }
