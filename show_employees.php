@@ -22,18 +22,20 @@
                 <label class="label">แสดงข้อมูลตามรหัสพนักงาน</label>
               </div>
               <div class="column is-half">
-                <select class="input is-small" name="Emp_ID" style="width : 60%" readonly>
-                  <?php
-                    $invis = "visibility: hidden;";
-                    $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
-                    $result = $connect->query($sql);
-                    while($row = $result->fetch_array()){
-                  ?>
-                      <option value=<?php echo $row['Emp_ID']; ?>><?php echo $row['Emp_ID']; ?></option>
-                  <?php
-                    }
-                   ?>
-                </select>
+                <span class="select">
+                  <select name="Emp_ID" style="width : 100%" readonly>
+                    <?php
+                      $invis = "visibility: hidden;";
+                      $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
+                      $result = $connect->query($sql);
+                      while($row = $result->fetch_array()){
+                    ?>
+                        <option value=<?php echo $row['Emp_ID']; ?>><?php echo $row['Emp_ID']; ?></option>
+                    <?php
+                      }
+                     ?>
+                  </select>
+                </span>
                 <input type="submit" name="show" value="ดูข้อมูล" class="button is-primary is-outlined is-small">
               </div>
             </div>
@@ -148,6 +150,9 @@
             </div>
           <div class="column is-half" style="<?php echo $invis; ?>">
             <div class="columns">
+              <br><br>
+            </div>
+            <div class="columns">
               <div class="Pic"> <img id="fileToUpload"/ width=150px height=160px src="<?php echo $IMG; ?>"></div><br>
             </div>
             <div class="columns">
@@ -212,8 +217,8 @@
             </div>
           </div>
         </div>
-        <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
-        <a href="delete_employees.php?ID=<?php echo $ID; ?>"><input type="button" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></a></center>
+        <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไขข้อมูล</button></a>
+        <a href="delete_employees.php?ID=<?php echo $ID; ?>"><input type="button" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>" onclick="if(confirm('ยืนยันการลบ')) return true; else return false;"></a></center>
       </div>
     </form>
     <?php }
@@ -223,6 +228,7 @@
       echo "</script>";
     }
     ?>
+
     <br><br><br>
   </body>
 </html>

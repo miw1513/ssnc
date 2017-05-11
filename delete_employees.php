@@ -1,4 +1,5 @@
 <?php
+  
   include 'connect.php';
   $ID = $_GET['ID'];
   $sqldele = "DELETE FROM employees WHERE Emp_ID = '$ID'";

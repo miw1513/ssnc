@@ -8,22 +8,22 @@ require 'template/header.php';
   <p class="control">
     <span class="select">
 <select name="monthyear">
-<?php
+  <?php
 
-$sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
-$query_select_month = $connect->query($sql_select_month);
+  $sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
+  $query_select_month = $connect->query($sql_select_month);
 
-while ($select_month = $query_select_month->fetch_assoc()){
-?>
+  while ($select_month = $query_select_month->fetch_assoc()){
+  ?>
 
-  <option values="<?php echo $select_month['MonthYear']; ?>"> <?php echo $select_month['MonthYear']; ?> </option>
+    <option values="<?php echo $select_month['MonthYear']; ?>"> <?php echo $select_month['MonthYear']; ?> </option>
 
-<?php
-}
- ?>
-              </select>
-              </span>
-            </p>
+  <?php
+  }
+   ?>
+</select>
+    </span>
+  </p>
               </div>
                 <button class="button is-primary" value="ส่งข้อมูล">Submit</button>
     </form>
