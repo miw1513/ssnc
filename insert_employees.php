@@ -16,7 +16,15 @@
                 <label class="label">รหัสพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_ID" value=""class="input is-small" autofocus="" placeholder="" required="" style="width : 60%">
+                <b>
+                <?php
+                  $sqlid = "SELECT * FROM employees ORDER BY 1 DESC LIMIT 1";
+                  $result = $connect->query($sqlid);
+                  while($row = $result->fetch_array()){
+                    echo $row['Emp_ID'] + 1;
+                  }
+                ?>
+                </b>
               </div>
             </div>
             <div class="columns">
@@ -244,12 +252,12 @@
                 VALUES ('$ID','$Date','1','0','0','0')";
         $connect->query($sql);
       }
-
+      echo "<script type=\"text/javascript\">
+              alert(\"เพิ่มข้อมูลสำเร็จ\");
+            </script>";
 
     }
-
-
-
      ?>
+
   </body>
 </html>

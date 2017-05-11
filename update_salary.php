@@ -73,6 +73,7 @@
             $Time_OT20 ="";
             $Time_OT30 ="";
             $IMG ="";
+            $Salary_Diligent="";
             if ($_GET) {
               $ID = $_GET['ID'];
               $monthyear = date("my");
@@ -96,11 +97,12 @@
                 $Time_OT20 = $row['Time_OT20'];
                 $Time_OT30 = $row['Time_OT30'];
                 $IMG =$row['Emp_IMG'];
+                $Salary_Diligent= $row['Salary_Diligent'];
               }
             }
 
            ?>
-           
+
           <div class="columns">
             <div class="column is-half">
               <label class="label">ภาษี</label>
@@ -186,7 +188,7 @@
               </div>
               <div class="column is-half">
                 <?php echo $Time_Work ?>
-                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTimeWork" value="" class="input is-small" style="width : 40%" required min=0>
+                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTimeWork" value="" class="input is-small" style="width : 40%" required min=0> วัน
                 <?php else: ?> เดือน
                 <?php endif; ?>
               </div>
@@ -207,7 +209,7 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT15; ?> ชม. =
                  <?php echo $Salary_OT15; ?> บาท
-                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
+                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
               </div>
             </div>
             <div class="columns">
@@ -217,7 +219,7 @@
               <div class="column is-two-third">
                 <?php echo $Time_OT20; ?>  ชม. =
                 <?php echo $Salary_OT20; ?> บาท
-                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
+                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
               </div>
             </div>
             <div class="columns">
@@ -227,7 +229,16 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT30; ?>  ชม. =
                  <?php echo $Salary_OT30; ?> บาท
-                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
+                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-one-third">
+                <label class="label">เบี้ยขยัน</label>
+              </div>
+              <div class="column is-two-third">
+                 <?php echo $Salary_Diligent; ?>  บาท
+                <input type="number" name="InDiligent" value="" style="width : 30%" class="input is-small" autofocus="" required min=0> บาท
               </div>
             </div>
             <div class="columns">
@@ -253,6 +264,7 @@
       $InOT15 = $_POST['InOT15'];
       $InOT20 = $_POST['InOT20'];
       $InOT30 = $_POST['InOT30'];
+      $Salary_Diligent = $_POST['InDiligent'];
       if ($Emp_Work == "รายวัน") {
         $InTimeWork = $_POST['InTimeWork'];
         $OT15 = ($Salary_Money/8) * $InOT15 * 1.5;
@@ -282,7 +294,8 @@
                     Salary_Paid = '$Paid',
                     Salary_Vat = '$Salary_Vat',
                     Salary_Insurance = '$Salary_Insurance',
-                    Salary_Fund = '$Salary_Fund'
+                    Salary_Fund = '$Salary_Fund',
+                    Salary_Diligent = '$Salary_Diligent' 
                     WHERE Salary_ID = '$ID'";
       $connect->query($sqlsalary);
       //Update Time Table

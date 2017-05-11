@@ -25,7 +25,7 @@
                 <select class="input is-small" name="Emp_ID" style="width : 60%" readonly>
                   <?php
                     $invis = "visibility: hidden;";
-                    $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID ORDER BY Emp_ID";
+                    $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
                     $result = $connect->query($sql);
                     while($row = $result->fetch_array()){
                   ?>
@@ -213,7 +213,7 @@
           </div>
         </div>
         <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
-        <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
+        <a href="delete_employees.php?ID=<?php echo $ID; ?>"><input type="button" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></a></center>
       </div>
     </form>
     <?php }
