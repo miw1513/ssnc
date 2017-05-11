@@ -40,14 +40,13 @@ while ($select_month = $query_select_month->fetch_assoc()){
     <th>ชื่อพนักงาน</th>
     <th>แผนก</th>
     <th>Dep_ID</th>
+    <th>Salary_Money</th>
+    <th>Salary_Balance</th>
     <th>Salary_OT15</th>
     <th>Salary_OT20</th>
     <th>Salary_OT30</th>
 
-    <th>Time_Work</th>
-    <th>Time_OT15</th>
-    <th>Time_OT20</th>
-    <th>Time_OT30</th>
+
     <th></th>
   </tr>
 <?php
@@ -70,33 +69,38 @@ while ($select_month = $query_select_month->fetch_assoc()){
       <td> <?php echo $select_salary['Emp_Name']; ?></td>
       <td> <?php echo $select_salary['Dep_ID']; ?></td>
       <td> <?php echo $select_salary['Emp_Work']; ?></td>
+      <td> <?php echo $select_salary['Salary_Money']; ?></td>
+      <td> <?php echo $select_salary['Salary_Balance']; ?></td>
       <td> <?php echo $select_salary['Salary_OT15']; ?></td>
       <td> <?php echo $select_salary['Salary_OT20']; ?></td>
       <td> <?php echo $select_salary['Salary_OT30']; ?></td>
-      <td> <?php echo $select_time['Time_Work']; ?></td>
-      <td> <?php echo $select_time['Time_OT15']; ?></td>
-      <td> <?php echo $select_time['Time_OT20']; ?></td>
-      <td> <?php echo $select_time['Time_OT30']; ?></td>
+
       <td> <a href="javascript:toggleDiv('<?php echo $select_salary['Salary_ID'];  ?>')">เพิ่มเติม </a></td>
 
     </tr>
 
     <tr id="<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
       <tr id="1<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
-        <th>Salary_Money</th>
-        <th>Salary_Balance</th>
+
         <th>Salary_Vat</th>
         <th>Salary_insurance</th>
         <th>Salary_Paid</th>
         <th>Salary_Fund</th>
+        <th>Time_Work</th>
+        <th>Time_OT15</th>
+        <th>Time_OT20</th>
+        <th>Time_OT30</th>
       </tr>
       <tr id="2<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
-        <td> <?php echo $select_salary['Salary_Money']; ?></td>
-        <td> <?php echo $select_salary['Salary_Balance']; ?></td>
+
         <td> <?php echo $select_salary['Salary_Vat']; ?></td>
         <td> <?php echo $select_salary['Salary_Insurance']; ?></td>
         <td> <?php echo $select_salary['Salary_Paid']; ?></td>
         <td> <?php echo $select_salary['Salary_Fund']; ?></td>
+        <td> <?php echo $select_time['Time_Work']; ?></td>
+        <td> <?php echo $select_time['Time_OT15']; ?></td>
+        <td> <?php echo $select_time['Time_OT20']; ?></td>
+        <td> <?php echo $select_time['Time_OT30']; ?></td>
       </tr>
 
     </tr>
