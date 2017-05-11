@@ -59,7 +59,7 @@
       </div>
     </form>
     <?php
-    
+
     if($_POST){
       $username = $_POST['user'];
       $password2 = $_POST['password'];
@@ -79,7 +79,7 @@
       }
       if($valid=='yes'){
       echo "<script type='text/javascript'>";
-      echo "window.location = 'insert_employees.php'";
+      echo "window.location = 'home.php'";
       $_SESSION['login'] = 'yes';
       echo "</script>";
       }
