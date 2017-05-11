@@ -75,9 +75,7 @@
               $invis = "";
             }
              ?>
-             <br>
-
-
+           <br>
            <div class="columns" style="<?php echo $invis; ?>" >
                <div class="column is-one-quarter">
                  <label class="label">รหัสพนักงาน</label>
@@ -197,7 +195,6 @@
               <div class="column is-one-quarter">
                 <label class="label">จำนวนบุตร</label>
               </div>
-
               <div class="column is-half">
                   <?php echo $Child; ?>
               </div>
@@ -213,11 +210,10 @@
                   <?php echo $StrDate; ?>
               </div>
             </div>
-        </div>
-
+          </div>
         </div>
         <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
-          <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
+        <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
       </div>
     </form>
     <?php }
