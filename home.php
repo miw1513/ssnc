@@ -16,7 +16,7 @@
         <div class="columns">
           <div class="column is-one-quarter">
             <div class="box" style="width: 200px;">
-              <a href="show_employees.php"><img src="image/icon/show_emp.png" alt=""></a>
+              <a href="show_employees.php"><img src="image/icon/1.png" alt=""></a>
               <ul class="menu-list">
                 <a href="show_employees.php"><p class="title is-6">แสดงข้อมูลพนักงาน</p></a>
               </ul>
@@ -24,7 +24,7 @@
           </div>
           <div class="column is-one-quarter">
             <div class="box" style="width: 200px;">
-              <a href="insert_employees.php"><img src="image/icon/insert_emp.png" alt=""></a>
+              <a href="insert_employees.php"><img src="image/icon/2.png" alt=""></a>
               <ul class="menu-list">
                 <a href="insert_employees.php"><p class="title is-6">เพิ่มข้อมูลพนักงาน</p></a>
               </ul>
@@ -40,7 +40,7 @@
           <div class="columns">
             <div class="column is-one-quarter">
               <div class="box" style="width: 200px;">
-                <a href="show_salary.php"><img src="image/icon/show_salary.png" alt=""></a>
+                <a href="show_salary.php"><img src="image/icon/3.png" alt=""></a>
                 <ul class="menu-list">
                   <a href="show_salary.php"><p class="title is-6">แสดงเงินเดือน</p></a>
                 </ul>
@@ -48,7 +48,7 @@
             </div>
             <div class="column is-one-quarter">
               <div class="box" style="width: 200px;">
-                <a href="update_salary.php"><img src="image/icon/update_salary.png" alt=""></a>
+                <a href="update_salary.php"><img src="image/icon/4.png" alt=""></a>
                 <ul class="menu-list">
                   <a href="update_salary.php"><p class="title is-6">อัพเดทเงินเดือน</p></a>
                 </ul>
@@ -64,7 +64,7 @@
             <div class="columns">
               <div class="column is-one-quarter">
                 <div class="box" style="width: 200px;">
-                  <a href="show_bill.php"><img src="image/icon/print_salary.png" alt=""></a>
+                  <a href="show_bill.php"><img src="image/icon/5.png" alt=""></a>
                   <ul class="menu-list">
                     <a href="show_bill.php"><p class="title is-6">พิมพ์ใบจ่ายเงินเดือน</p></a>
                   </ul>
