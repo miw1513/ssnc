@@ -11,27 +11,32 @@
       <div class="columns">
         <div class="column is-half">
           <h1 class="title">การจ่ายเงินเดือนของพนักงาน</h1>
+          <form action="#" method="post">
           <select name="monthyear" class="input is-small" style="width : 50%;">
           <?php
             $sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
             $query_select_month = $connect->query($sql_select_month);
             while ($select_month = $query_select_month->fetch_assoc()){
           ?>
-          <option values="<?php echo $select_month['MonthYear']; ?>"><?php echo $select_month['MonthYear']; ?></option>
+           <option values="<?php echo $select_month['MonthYear']; ?>"><?php echo $select_month['MonthYear']; ?></option>
           <?php
             }
             $monthyear = $_GET['monthyear'];
              ?>
             </select>
-            <button class="button is-primary is-outlined is-small">ส่งข้อมูล</button>
+            <input type="submit" value="หาข้อมูล" class="button is-primary is-outlined is-small">
+            </form>
+            <br>
             <div id="table-wrapper">
-              <div id="table-scroll">
+              <div id="table-scroll" style="height:400px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
                   <tr>
                     <th>รหัสพนักงาน</th>
                     <th>ชื่อ - นามสกุล</th>
                   </tr>
                   <?php
+                  if($_POST){
+                  $monthyear =  $_POST['monthyear'];
                   $sql = "SELECT * FROM employees";
                   $result = $connect->query($sql);
                   while($row = $result->fetch_array()){
@@ -42,6 +47,7 @@
                     </tr>
               <?php
                 }
+              }
                 ?>
               </table>
             </div>
