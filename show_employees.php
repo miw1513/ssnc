@@ -10,12 +10,16 @@
     <form class="" action="#" method="post" enctype="multipart/form-data">
       <?php
       include 'template/header.php'; ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
     <div class="container">
       <div class="columns" >
-          <div class="column is-half">
+        <div class="column is-half">
             <h1  class="title">ข้อมูลพนักงาน</h1>
             <div class="columns">
               <div class="column is-half">
@@ -24,6 +28,7 @@
               <div class="column is-half">
                 <select class="input is-small" name="Emp_ID" style="width : 60%" readonly>
                   <?php
+                    $invis = "visibility: hidden;";
                     $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID ORDER BY Emp_ID";
                     $result = $connect->query($sql);
                     while($row = $result->fetch_array()){
@@ -71,11 +76,16 @@
                 $Status = $row['Emp_Status'];
                 $IMG = $row['Emp_IMG'];
               }
+              $invis = "";
             }
              ?>
              <br>
+<<<<<<< HEAD
                
              <div class="columns">
+=======
+             <div class="columns" style="<?php echo $invis; ?>" >
+>>>>>>> origin/master
                <div class="column is-one-quarter">
                  <label class="label">รหัสพนักงาน</label>
                </div>
@@ -83,7 +93,7 @@
                  <?php echo "$ID"; ?>
                </div>
              </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">ชื่อพนักงาน</label>
               </div>
@@ -91,7 +101,7 @@
                 <?php echo "$Name"; ?>
               </div>
             </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">เลขประจำตัวประชาชน</label>
               </div>
@@ -99,7 +109,7 @@
                 <?php echo $NID; ?>
               </div>
             </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">วันเดือนปีเกิด</label>
               </div>
@@ -107,7 +117,7 @@
                   <?php echo $DOB; ?>
               </div>
             </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">ประเภทการทำงาน</label>
               </div>
@@ -115,7 +125,7 @@
                 <?php echo $Work; ?>
               </div>
             </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">แผนก</label>
               </div>
@@ -133,21 +143,19 @@
                   <?php echo $DepName; ?>
               </div>
             </div>
-            <div class="columns">
+            <div class="columns" style="<?php echo $invis; ?>">
               <div class="column is-one-quarter">
                 <label class="label">เงินเดือน</label>
               </div>
               <div class="column is-half">
                   <?php echo $Salary; ?>
-
               </div>
               <div class="column is-one-quarter">
                   <label class="label">บาท</label>
               </div>
             </div>
-
           </div>
-          <div class="column is-half">
+          <div class="column is-half" style="<?php echo $invis; ?>">
             <div class="columns">
               <div class="Pic"> <img id="fileToUpload"/ width=150px height=160px src="<?php echo $IMG; ?>"></div><br>
             </div>
@@ -167,7 +175,6 @@
                 <?php echo "$Add"; ?>
               </div>
             </div>
-
             <br>
             <div class="columns">
               <div class="column is-one-quarter">
@@ -204,7 +211,6 @@
               <div class="column is-one-quarter">
                   <label class="label">คน</label>
               </div>
-
             </div>
             <div class="columns">
               <div class="column is-one-quarter">
@@ -215,9 +221,10 @@
               </div>
             </div>
           </div>
+        </div>
+        <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
+          <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
       </div>
-      <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined">แก้ไข</button></a> <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger">
-    </div>
     </form>
     <?php }
     else {
