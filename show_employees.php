@@ -214,9 +214,10 @@
               </div>
             </div>
         </div>
+
+        </div>
         <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
           <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
-        </div>
       </div>
     </form>
     <?php }
