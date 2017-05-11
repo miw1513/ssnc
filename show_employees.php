@@ -18,14 +18,14 @@
       ?>
     <br>
     <div class="container">
-      <div class="columns">
+      <div class="columns" >
           <div class="column is-half">
             <h1  class="title">ข้อมูลพนักงาน</h1>
             <div class="columns">
-              <div class="column is-one-quarter">
-                <label class="label">รหัสพนักงาน</label>
+              <div class="column is-half">
+                <label class="label">แสดงข้อมูลตามรหัสพนักงาน</label>
               </div>
-              <div class="column is-three-quarters">
+              <div class="column is-half">
                 <select class="input is-small" name="Emp_ID" style="width : 60%" readonly>
                   <?php
                     $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID ORDER BY Emp_ID";
@@ -37,7 +37,7 @@
                     }
                    ?>
                 </select>
-                <input type="submit" name="show" value="ดูข้อมูล">
+                <input type="submit" name="show" value="ดูข้อมูล" class="button is-primary is-outlined is-small">
               </div>
             </div>
             <?php
@@ -77,12 +77,21 @@
               }
             }
              ?>
+             <br>
+             <div class="columns">
+               <div class="column is-one-quarter">
+                 <label class="label">รหัสพนักงาน</label>
+               </div>
+               <div class="column is-three-quarters">
+                 <?php echo "$ID"; ?>
+               </div>
+             </div>
             <div class="columns">
               <div class="column is-one-quarter">
                 <label class="label">ชื่อพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" readonly>
+                <?php echo "$Name"; ?>
               </div>
             </div>
             <div class="columns">
@@ -90,7 +99,7 @@
                 <label class="label">เลขประจำตัวประชาชน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%" readonly>
+                <?php echo $NID; ?>
               </div>
             </div>
             <div class="columns">
@@ -98,7 +107,7 @@
                 <label class="label">วันเดือนปีเกิด</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_DOB" value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%" readonly>
+                  <?php echo $DOB; ?>
               </div>
             </div>
             <div class="columns">
@@ -106,7 +115,7 @@
                 <label class="label">ประเภทการทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Work" value="<?php echo $Work; ?>" class="input is-small"  style="width : 60%" readonly>
+                <?php echo $Work; ?>
               </div>
             </div>
             <div class="columns">
@@ -124,7 +133,7 @@
                         }
                       }
                      ?>
-                  <input type="text" name="Dep" value="<?php echo $DepName; ?>" class="input is-small"  style="width : 60%" readonly>
+                  <?php echo $DepName; ?>
               </div>
             </div>
             <div class="columns">
@@ -132,11 +141,51 @@
                 <label class="label">เงินเดือน</label>
               </div>
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Salary; ?>" name="Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" readonly>
+                  <?php echo $Salary; ?>
 
               </div>
               <div class="column is-one-quarter">
                   <label class="label">บาท</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="column is-half">
+            <div class="columns">
+              <div class="Pic"> <img id="fileToUpload"/ width=150px height=160px src="<?php echo $IMG; ?>"></div><br>
+            </div>
+            <div class="columns">
+              <div class="column is-one-quarter">
+                <label class="label">เพศ</label>
+              </div>
+              <div class="column is-three-quarters">
+                <?php echo $Gender; ?>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-one-quarter">
+                <label class="label">ที่อยู่</label>
+              </div>
+              <div class="column is-three-quarters">
+                <?php echo "$Add"; ?>
+              </div>
+            </div>
+
+            <br>
+            <div class="columns">
+              <div class="column is-one-quarter">
+                <label class="label">โทรศัพท์</label>
+              </div>
+              <div class="column is-three-quarters">
+                  <?php echo $Tel; ?>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-one-quarter">
+                <label class="label">สถานะภาพ</label>
+              </div>
+              <div class="column is-three-quarters">
+                <?php echo $Status; ?>
               </div>
             </div>
             <div class="columns">
@@ -144,7 +193,7 @@
                 <label class="label">โรคประจำตัว</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" readonly>
+                <?php echo $Disease; ?>
               </div>
             </div>
             <div class="columns">
@@ -153,7 +202,7 @@
               </div>
 
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" readonly>
+                  <?php echo $Child; ?>
               </div>
               <div class="column is-one-quarter">
                   <label class="label">คน</label>
@@ -165,45 +214,7 @@
                 <label class="label">วันที่เริ่มทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="date" name="Emp_StrDate" value="<?php echo $StrDate; ?>" class="input is-small"  style="width : 60%" readonly>
-              </div>
-            </div>
-          </div>
-          <div class="column is-half">
-            <div class="columns">
-              <div class="Pic"> <img id="fileToUpload"/ width=150px height=160px src="<?php echo $IMG; ?>"></div><br>
-            </div>
-            <div class="columns">
-              <div class="column is-one-quarter">
-                <label class="label">เพศ</label>
-              </div>
-              <div class="column is-three-quarters">
-                <input type="text" name="Gender" value="<?php echo $Gender; ?>" class="input is-small"  style="width : 40%" readonly>
-              </div>
-            </div>
-            <div class="colomns">
-              <div class="column is-one-quarter">
-                  <label class="label">ที่อยู่</label>
-              </div>
-              <div class="columns">
-                  <textarea class="textarea" name ="Emp_Add" style="width : 60%" readonly><?php echo $Add; ?></textarea>
-              </div>
-            </div>
-            <br>
-            <div class="columns">
-              <div class="column is-one-quarter">
-                <label class="label">โทรศัพท์</label>
-              </div>
-              <div class="column is-three-quarters">
-                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" readonly>
-              </div>
-            </div>
-            <div class="columns">
-              <div class="column is-one-quarter">
-                <label class="label">สถานะภาพ</label>
-              </div>
-              <div class="column is-three-quarters">
-                <input type="text" name="Status" value="<?php echo $Status; ?>" class="input is-small"  style="width : 60%" readonly>
+                  <?php echo $StrDate; ?>
               </div>
             </div>
           </div>

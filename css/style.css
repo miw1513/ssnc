@@ -1,5 +1,6 @@
 .Pic{
-  border: 1px solid black;
+  border: 1px solid;
+  border-color: #00d1b2 ;
   width: 150px;
   height : 160px;
 }
