@@ -10,10 +10,6 @@
     <form class="" action="#" method="post" enctype="multipart/form-data">
       <?php
       include 'template/header.php'; ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
       <?php if (  $_SESSION['login'] == 'yes'){
       ?>
     <br>
@@ -80,12 +76,12 @@
             }
              ?>
              <br>
-<<<<<<< HEAD
-               
+
+
              <div class="columns">
-=======
+
              <div class="columns" style="<?php echo $invis; ?>" >
->>>>>>> origin/master
+
                <div class="column is-one-quarter">
                  <label class="label">รหัสพนักงาน</label>
                </div>
