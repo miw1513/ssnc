@@ -11,7 +11,7 @@
     <br>
     <div class="container">
       <div class="columns">
-        <h1 class="title">จัดการข้อมูลพนักงาน</h1>
+        <h1 class="subtitle">จัดการข้อมูลพนักงาน</h1>
       </div>
         <div class="columns">
           <div class="column is-one-quarter">
@@ -35,7 +35,7 @@
       <br><br>
       <div class="container">
         <div class="columns">
-          <h1 class="title">จัดการเงินเดือนพนักงาน</h1>
+          <h1 class="subtitle">จัดการเงินเดือนพนักงาน</h1>
         </div>
           <div class="columns">
             <div class="column is-one-quarter">
@@ -59,7 +59,7 @@
         <br><br>
         <div class="container">
           <div class="columns">
-            <h1 class="title">พิมพ์รายงาน</h1>
+            <h1 class="subtitle">พิมพ์รายงาน</h1>
           </div>
             <div class="columns">
               <div class="column is-one-quarter">

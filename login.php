@@ -13,7 +13,7 @@
   <form action="#" method="post">
     <div class="login-wrapper columns">
       <div class="column is-8 is-hidden-mobile hero-banner" )>
-        <section class="hero is-fullheight "style="background-image :url('https://media.giphy.com/media/IbYboq1wOcYcE/giphy.gif'">
+        <section class="hero is-fullheight "style="background-image :url('https://media.giphy.com/media/26BoEvanGQUZZY6eQ/giphy.gif'">
           <div class="hero-body">
             <div class="container section">
               <div class="has-text-right">
@@ -35,19 +35,19 @@
                   <div class="column is-8 is-offset-2">
                     <div class="login-form">
                       <p class="control has-icon has-icon-right">
-                        <input class="input email-input" type="text" placeholder="SSNC-CIVIL" name="user">
+                        <input class="input email-input is-large" type="text" placeholder="SSNC-CIVIL" name="user">
                         <span class="icon user">
                           <i class="fa fa-user"></i>
                         </span>
                       </p>
                       <p class="control has-icon has-icon-right">
-                        <input class="input password-input" type="password" placeholder="●●●●●●●" name="password">
+                        <input class="input password-input is-large" type="password" placeholder="●●●●●●●" name="password">
                         <span class="icon user">
                           <i class="fa fa-lock"></i>
                         </span>
                       </p>
                       <p class="control login">
-                        <input type="submit" value="เข้าสู่ระบบ" class="button is-primary is-outlined" style="width : 100%">
+                        <input type="submit" value="เข้าสู่ระบบ" class="button is-primary is-outlined is-large" style="width : 100%">
                       </p>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
       while($col = $result->fetch_array()){
         if($col[0]==$username && $col[1]==$password2){
           $valid='yes';
-
+          $_SESSION['username'] = $username;
           break;
         }
         else{
