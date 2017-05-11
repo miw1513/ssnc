@@ -1,8 +1,8 @@
-<div class="container">
+
 <?php
 require 'template/header.php';
  ?>
-
+<div class="container">
 <form method="GET">
 <select name="monthyear">
 <?php
