@@ -78,10 +78,7 @@
              <br>
 
 
-             <div class="columns">
-
-             <div class="columns" style="<?php echo $invis; ?>" >
-
+           <div class="columns" style="<?php echo $invis; ?>" >
                <div class="column is-one-quarter">
                  <label class="label">รหัสพนักงาน</label>
                </div>
@@ -150,7 +147,7 @@
                   <label class="label">บาท</label>
               </div>
             </div>
-          </div>
+            </div>
           <div class="column is-half" style="<?php echo $invis; ?>">
             <div class="columns">
               <div class="Pic"> <img id="fileToUpload"/ width=150px height=160px src="<?php echo $IMG; ?>"></div><br>
@@ -216,10 +213,10 @@
                   <?php echo $StrDate; ?>
               </div>
             </div>
-          </div>
         </div>
         <center><a href="update_employees.php?ID=<?php echo $ID; ?>"><button type="button" name="button" class="button is-primary is-outlined" style="<?php echo $invis; ?>">แก้ไข</button></a>
           <input type="reset" value="ลบข้อมูล" class="button is-primary is-outlined is-danger" style="<?php echo $invis; ?>"></center>
+        </div>
       </div>
     </form>
     <?php }
