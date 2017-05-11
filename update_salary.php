@@ -33,7 +33,7 @@
              ?>
             </select>
             <button>ส่งข้อมูล</button>
-            <form class="" action="#" method="post">
+            <form class="" action="" method="post">
         <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
           <tr>
             <th>รหัสพนักงาน</th>
@@ -75,7 +75,7 @@
             if ($_GET) {
               $ID = $_GET['ID'];
               $monthyear = date("my");
-              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = '0517'";
+              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = 'May-2017'";
               $result = $connect->query($sqlselect);
               while($row = $result->fetch_array()){
                 $Emp_Name = $row['Emp_Name'];
@@ -182,7 +182,7 @@
               </div>
               <div class="column is-half">
                 <?php echo $Time_Work ?>
-                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTime_Work" value="" class="input is-small" style="width : 40%">
+                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTimeWork" value="" class="input is-small" style="width : 40%" required min=0>
                 <?php else: ?> เดือน
                 <?php endif; ?>
               </div>
@@ -193,7 +193,7 @@
               </div>
               <div class="column is-half">
                 <?php echo $Salary_Paid; ?> บาท
-                <input type="number" name="Paid" value="" style="width : 40%" class="input is-small" autofocus=""> บาท
+                <input type="number" name="Paid" value="" style="width : 40%" class="input is-small" autofocus="" required min=0> บาท
               </div>
             </div>
             <div class="columns">
@@ -203,7 +203,7 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT15; ?> ชม. =
                  <?php echo $Salary_OT15; ?> บาท
-                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus=""> บาท
+                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
               </div>
             </div>
             <div class="columns">
@@ -213,7 +213,7 @@
               <div class="column is-two-third">
                 <?php echo $Time_OT20; ?>  ชม. =
                 <?php echo $Salary_OT20; ?> บาท
-                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus=""> บาท
+                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
               </div>
             </div>
             <div class="columns">
@@ -223,7 +223,7 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT30; ?>  ชม. =
                  <?php echo $Salary_OT30; ?> บาท
-                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus=""> บาท
+                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> บาท
               </div>
             </div>
             <div class="columns">
@@ -242,4 +242,53 @@
       </div>
     </div>
   </body>
+  <?php
+    if($_POST){
+      $Paid = $_POST['Paid'];
+      $InOT15 = $_POST['InOT15'];
+      $InOT20 = $_POST['InOT20'];
+      $InOT30 = $_POST['InOT30'];
+      if ($Emp_Work == "รายวัน") {
+        $InTimeWork = $_POST['InTimeWork'];
+        $OT15 = ($Salary_Money/8) * $InOT15 * 1.5;
+        $OT20 = ($Salary_Money/8) * $InOT20 * 2.0;
+        $OT30 = ($Salary_Money/8) * $InOT30* 3.0;
+        $Salary_Vat = $Salary_Money*$InTimeWork*0.03;
+        $Salary_Insurance = $Salary_Money*$InTimeWork*0.05;
+        $Salary_Fund = $Salary_Money*$InTimeWork*0.03;
+      }
+      else {
+        $InTimeWork = 1;
+        $OT15 = ($Salary_Money/30/8) * $InOT15 * 1.5;
+        $OT20 = ($Salary_Money/30/8) * $InOT20 * 2.0;
+        $OT30 = ($Salary_Money/30/8) * $InOT30 * 3.0;
+        $Salary_Vat = $Salary_Money*0.03;
+        $Salary_Insurance = $Salary_Money*0.05;
+        $Salary_Fund = $Salary_Money*0.03;
+      }
+      $Salary_Balance = 0;
+      $Salary_Balance = ($Salary_Money*$InTimeWork) + ($OT15 + $OT20 + $OT30) - ($Salary_Vat + $Salary_Insurance + $Salary_Fund + $Paid) ;
+      //Update Salary Table
+      $sqlsalary = "UPDATE salary SET
+                    Salary_Balance = '$Salary_Balance',
+                    Salary_OT15 = '$OT15',
+                    Salary_OT20 = '$OT20',
+                    Salary_OT30 = '$OT30',
+                    Salary_Paid = '$Paid',
+                    Salary_Vat = '$Salary_Vat',
+                    Salary_Insurance = '$Salary_Insurance',
+                    Salary_Fund = '$Salary_Fund'
+                    WHERE Salary_ID = '$ID'";
+      $connect->query($sqlsalary);
+      //Update Time Table
+      $sqltime = "UPDATE time SET
+                  Time_Work = '$InTimeWork',
+                  Time_OT15 = '$InOT15',
+                  Time_OT20 = '$InOT20',
+                  Time_OT30 = '$InOT30'
+                  WHERE Time_ID = '$ID'";
+    $connect->query($sqltime);
+    header("Refresh:0; url=update_salary.php?ID=$ID");
+    }
+   ?>
 </html>
