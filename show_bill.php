@@ -28,6 +28,7 @@
             <input type="submit" value="หาข้อมูล" class="button is-primary is-outlined is-small">
             </form>
             <br>
+            <form method="GET" action="printer.php">
             <div id="table-wrapper">
               <div id="table-scroll" style="height:500px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
@@ -43,6 +44,7 @@
                     <th>OT*3.0</th>
                     <th>รายได้สุทธิ</th>
                   </tr>
+
                   <?php
                   if($_POST){
                   $monthyear =  $_POST['monthyear'];
@@ -51,8 +53,9 @@
                   $result = $connect->query($sql);
                   while($row = $result->fetch_array()){
                     ?>
+
                     <tr>
-                      <td><input type="checkbox" name="<?php echo $row['Emp_ID']; ?>"></td>
+                      <td><input type="checkbox" name="printer[]" value="<?php echo $row['Emp_ID']; ?>"></td>
                       <td><?php echo $row['Emp_ID']; ?></td>
                       <td><?php echo $row['Emp_Name']; ?></td>
                       <td><?php echo $row['Dep_Name']; ?></td>
@@ -69,8 +72,11 @@
                 ?>
               </table>
             </div>
-            <button type="button" name="button" class="button is-primary is-outlined"> <i class="fa fa-print"></i>&nbsp;&nbsp;ปริ้นเงินเดือน</button>
+            
+           <button  class="button is-primary is-outlined"> <i class="fa fa-print"></i>&nbsp;&nbsp;ปริ้นเงินเดือน</button>
+
           </div>
+        </form>
         </div>
       </div>
     </div>
