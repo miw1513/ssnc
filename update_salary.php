@@ -16,7 +16,7 @@
         <h1 class="title">จัดการเงินเดือนของพนักงาน</h1>
         <div id="table-wrapper">
           <div id="table-scroll">
-            <select name="monthyear">
+            <select name="monthyear" class="input is-small" style="width : 60%;">
             <?php
 
             $sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
@@ -32,7 +32,7 @@
             $monthyear = $_GET['monthyear'];
              ?>
             </select>
-            <button>ส่งข้อมูล</button>
+            <button class="button is-primary is-outlined is-small">ส่งข้อมูล</button>
             <form class="" action="" method="post">
         <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
           <tr>
@@ -72,6 +72,7 @@
             $Time_OT15 = "";
             $Time_OT20 ="";
             $Time_OT30 ="";
+            $IMG ="";
             if ($_GET) {
               $ID = $_GET['ID'];
               $monthyear = date("my");
@@ -94,10 +95,12 @@
                 $Time_OT15 = $row['Time_OT15'];
                 $Time_OT20 = $row['Time_OT20'];
                 $Time_OT30 = $row['Time_OT30'];
+                $IMG =$row['Emp_IMG'];
               }
             }
 
            ?>
+           
           <div class="columns">
             <div class="column is-half">
               <label class="label">ภาษี</label>
@@ -122,15 +125,42 @@
               <?php echo $Salary_Fund; ?> บาท
             </div>
           </div>
+          <div class="columns">
+            <div class="column is-half">
+              <label class="label">แผนก</label>
+            </div>
+            <div class="column is-half">
+              <?php
+                $Dep_Name = "";
+                if ($_GET) {
+                  $sqldep = "SELECT * FROM department WHERE Dep_ID = '$Dep_ID'";
+                  $result = $connect->query($sqldep);
+                  while($row = $result->fetch_array()){
+                    $Dep_Name = $row['Dep_Name'];
+                  }
+                }
+               ?>
+               <?php echo $Dep_Name; ?>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-half">
+              <label class="label">ประเภทการทำงาน</label>
+            </div>
+            <div class="column is-half">
+              <?php echo $Emp_Work ?>
+            </div>
+          </div>
+
+
         </div>
           <div class="column is-two-third">
-            <br>
+            <div class="Pic"> <img id="output"/ width=150px height=160px src="<?php echo $IMG; ?>"></div>
             <div class="columns">
               <div class="column is-one-third">
-
                 <label class="label">รหัสพนักงาน</label>
               </div>
-              <div class="column is-half">
+              <div class="column is-one-third">
                 <?php echo $ID; ?>
               </div>
             </div>
@@ -140,32 +170,6 @@
               </div>
               <div class="column is-half">
                 <?php echo $Emp_Name; ?>
-              </div>
-            </div>
-            <div class="columns">
-              <div class="column is-one-third">
-                <label class="label">แผนก</label>
-              </div>
-              <div class="column is-half">
-                <?php
-                  $Dep_Name = "";
-                  if ($_GET) {
-                    $sqldep = "SELECT * FROM department WHERE Dep_ID = '$Dep_ID'";
-                    $result = $connect->query($sqldep);
-                    while($row = $result->fetch_array()){
-                      $Dep_Name = $row['Dep_Name'];
-                    }
-                  }
-                 ?>
-                 <?php echo $Dep_Name; ?>
-              </div>
-            </div>
-            <div class="columns">
-              <div class="column is-one-third">
-                <label class="label">ประเภทการทำงาน</label>
-              </div>
-              <div class="column is-half">
-                <?php echo $Emp_Work ?>
               </div>
             </div>
             <div class="columns">
@@ -239,6 +243,7 @@
             </div>
           </div>
         </form>
+      </div>
       </div>
     </div>
   </body>
