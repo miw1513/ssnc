@@ -4,6 +4,9 @@ require 'template/header.php';
  ?>
 <div class="container">
 <form method="GET">
+  <div class="field">
+  <p class="control">
+    <span class="select">
 <select name="monthyear">
 <?php
 
@@ -18,9 +21,12 @@ while ($select_month = $query_select_month->fetch_assoc()){
 <?php
 }
  ?>
-</select>
-<button>ส่งข้อมูล</button>
-</form>
+              </select>
+              </span>
+            </p>
+              </div>
+                <button class="button is-primary" value="ส่งข้อมูล">Submit</button>
+    </form>
 
 
 <?php
