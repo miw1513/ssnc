@@ -220,7 +220,7 @@
       $connect->query($sql);
 
 
-      $Date = date("my");
+      $Date = date("F-Y");
       $table = "time";
       $Salary = $_POST['Salary'];
       if ($Work == "รายวัน") {
