@@ -11,9 +11,10 @@ require 'connect.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
   <style >
   body{
+    font-family: 'Didact Gothic', sans-serif;
     font-size:9px;
   }
   .table {
