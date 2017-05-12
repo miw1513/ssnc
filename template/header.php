@@ -27,7 +27,7 @@
 
 <nav class="nav has-shadow">
 <div class="container">
-  <div class="nav-left">
+  <div class="nav-center">
     <a class="nav-item is-tab is-hidden-mobile is-active" href = "home.php">SSNC-Civil</a>
     <a class="nav-item is-tab is-hidden-mobile" href="show_employees.php">จัดการข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-mobile" href="update_salary.php">จัดการเงินเดือนพนักงาน</a>
@@ -40,7 +40,6 @@
     <span></span>
   </span>
   <div class="nav-right nav-menu">
-
     <a class="nav-item is-tab is-hidden-tablet is-active" href = "home.php">SSNC-Civil</a>
     <a class="nav-item is-tab is-hidden-tablet" href="insert_employees.php">จัดการข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-tablet" href="update_salary.php">จัดการเงินเดือนพนักงาน</a>
