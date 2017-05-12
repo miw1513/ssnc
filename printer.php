@@ -23,7 +23,12 @@ require 'connect.php';
      </script>
 <style >
 body{
-  font-size:14px;
+  font-size:9.5px;
+}
+.table {
+  width:700px;
+
+
 }
 
 </style>
@@ -32,11 +37,7 @@ body{
 
 
  <body id="div1">
-   <style >
-    tr {
-       border:1px solid black;
-     }
-   </style>
+
     <script type="text/javascript">
       function printContent(el){
           var gen = window.open();
@@ -50,11 +51,7 @@ body{
       }
     </script>
 <div class="container">
-<style >
 
-
-
-</style>
 
 
   <?php
@@ -77,53 +74,63 @@ body{
           $select_print = $query_sql_select->fetch_assoc();
 
         ?>
-          <table style="border:1px solid black">
+          <table  class="table">
             <tr >
               <th >รหัสพนักงาน</th>
               <th >A001</th>
               <th></th>
               <th></th>
+              <th></th>
               <th >รอบวันที่</th>
               <th >19/01/2000</th>
+
             </tr>
             <tr >
               <th >ชื่อ</th>
               <th >Micro eieiza</th>
               <th></th>
               <th></th>
+              <th></th>
               <th >วันที่จ่าย</th>
               <th>19/01/2000</th>
+
             </tr>
             <tr >
               <th>วันเริ่มงาน</th>
               <th>19/01/2000</th>
               <th></th>
               <th></th>
+              <th></th>
               <th>แผนก</th>
               <th>asd</th>
+
             </tr>
             <tr >
               <th colspan="2"></th>
               <th></th>
               <th></th>
+              <th></th>
               <th>รูปแบบการจ่าย</th>
               <th>เงินสด</th>
+
             </tr>
 
           <br>
           <br>
 
             <tr >
-              <th >รายได้/Income</th>
-              <th>บาท/BAHT</th>
-              <th>รายการหัก/Deducation</th>
-              <th>บาท/BAHT</th>
-              <th>สรุป/Summary</th>
-              <th>บาท/BAHT</th>
+              <th >รายได้<br>Income</th>
+              <th></th>
+              <th>บาท<br>BAHT</th>
+              <th>รายการหัก<br>Deducation</th>
+              <th>บาท<br>BAHT</th>
+              <th>สรุป<br>Summary</th>
+              <th>บาท<br>BAHT</th>
             </tr>
             <tr  >
               <td>เงินเดือน / Salary </td>
               <td> 5 วัน </td>
+              <th></th>
               <td>หักมาสาย</td>
               <td>500</td>
               <td>รวมรายได้</td>
@@ -133,23 +140,29 @@ body{
             <tr >
               <td>ค่าล่วงเวลา 1 / OT 1 </td>
               <td>5 ชม</td>
+              <td></td>
               <td>หักออกก่อน </td>
               <td>500</td>
+
               <td>รวมรายการหัก </td>
               <td>600 บาท</td>
+
 
             </tr>
             <tr>
               <td>ค่าล่วงเวลา 1.5 / OT 1.5 </td>
               <td>6 ชม</td>
+              <td></td>
               <td>หักลา</td>
               <td>500 บาท</td>
               <td></td>
               <td></td>
+              <th></th>
             </tr>
             <tr>
               <td>ค่าล่วงเวลา 2 / OT 2 </td>
               <td>6 ชม</td>
+              <td></td>
               <td>หักขาดงาน</td>
               <td>700 บาท</td>
               <td></td>
@@ -162,10 +175,12 @@ body{
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
             <tr>
               <td>วันหยุดประเพณี</td>
               <td>6 วัน</td>
+              <td></td>
               <td></td>
               <td></td>
               <td>รายได้สุทธิ / Net Income</td>
@@ -178,6 +193,7 @@ body{
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
             <tr>
               <td>เบี้ยขยัน</td>
@@ -186,8 +202,10 @@ body{
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -200,6 +218,7 @@ body{
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
               <td>Year to Date กองทุนส่วนสมาชิก</td>
               <td>600 บาท</td>
             </tr>
@@ -208,6 +227,7 @@ body{
               <td></td>
               <td>ภาษี</td>
               <td> 700 บาท</td>
+              <td></td>
               <td>Year to Date กองทุนส่วนนายจ้าง</td>
               <td>600 บาท</td>
             </tr>
@@ -216,6 +236,7 @@ body{
               <td></td>
               <td>ประกันสังคม</td>
               <td>700 บาท</td>
+              <td></td>
               <td>Year to Date ประกันสังคม</td>
               <td>600 บาท</td>
             </tr>
@@ -224,6 +245,7 @@ body{
               <td></td>
               <td>กองทุนสำรองเลี้ยงชีพ</td>
               <td>700 บาท</td>
+              <td></td>
               <td>Year to Date รายได้สะสม</td>
               <td>600 บาท</td>
             </tr>
@@ -232,6 +254,7 @@ body{
               <td></td>
               <td>ค่าโอนเงิน</td>
               <td>700 บาท</td>
+              <td></td>
               <td>Year to Date รายได้สุทธิสะสม</td>
               <td>600 บาท</td>
             </tr>
