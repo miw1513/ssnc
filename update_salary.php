@@ -40,6 +40,7 @@
 
             <?php if (isset($_GET['monthyear'])) {
               $_SESSION['MonthYear'] = $_GET['monthyear'];
+              $monthyear = $_GET['monthyear'];
             ?>
 
         <div id="table-wrapper">
@@ -51,7 +52,7 @@
             <th>ชื่อ - นามสกุล</th>
           </tr>
           <?php
-            $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000";
+            $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID <> '1000' AND MonthYear = '$monthyear'";
             $result = $connect->query($sql);
             while($row = $result->fetch_array()){
           ?>
@@ -61,6 +62,7 @@
             </tr>
           <?php
             }
+
           ?>
         </table>
         </div>
