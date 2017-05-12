@@ -26,7 +26,7 @@
                   <select name="Emp_ID" style="width : 100%" readonly>
                     <?php
                       $invis = "visibility: hidden;";
-                      $sql = "SELECT * FROM employees JOIN salary ON Emp_ID = Salary_ID WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
+                      $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
                       $result = $connect->query($sql);
                       while($row = $result->fetch_array()){
                     ?>

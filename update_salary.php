@@ -91,7 +91,7 @@
             if (isset($_GET['ID'])) {
               $ID = $_GET['ID'];
               $monthyear = $_GET['monthyear'];
-              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = '$monthyear'";
+              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = '$monthyear' AND time.MonthYear = '$monthyear'";
               $result = $connect->query($sqlselect);
               while($row = $result->fetch_array()){
                 $Emp_Name = $row['Emp_Name'];

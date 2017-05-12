@@ -22,7 +22,6 @@
            <option values="<?php echo $select_month['MonthYear']; ?>"><?php echo $select_month['MonthYear']; ?></option>
           <?php
             }
-            $monthyear = $_GET['monthyear'];
              ?>
             </select>
             <input type="submit" value="หาข้อมูล" class="button is-primary is-outlined is-small">
@@ -49,7 +48,7 @@
                   if($_POST){
                   $monthyear =  $_POST['monthyear'];
                   $sql = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID INNER JOIN department ON employees.Dep_ID = department.Dep_ID
-                          WHERE salary.MonthYear = '$monthyear'";
+                          WHERE salary.MonthYear = '$monthyear' AND time.MonthYear = '$monthyear'";
                   $result = $connect->query($sql);
                   while($row = $result->fetch_array()){
                     ?>
