@@ -29,7 +29,7 @@
             <input type="submit" value="แสดงข้อมูล" class="button is-primary is-outlined">
             </form>
             <br>
-            <form method="GET" action="printer.php">
+            <form method="GET" action="printer.php" target="_blank">
             <div id="table-wrapper">
               <div id="table-scroll" style="height:450px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
