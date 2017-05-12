@@ -75,7 +75,7 @@ require 'connect.php';
                 $select_print = $query_sql_select->fetch_assoc();
 
                 ?>
-                <table  class="table">
+                <!-- <table   border="1">
                   <tr >
                     <th >รหัสพนักงาน</th>
                     <th >A001</th>
@@ -113,12 +113,9 @@ require 'connect.php';
                     <th></th>
                     <th>รูปแบบการจ่าย</th>
                     <th>เงินสด</th>
-
                   </tr>
-
                   <br>
                   <br>
-
                   <tr >
                     <th >รายได้<br>Income</th>
                     <th></th>
@@ -144,11 +141,8 @@ require 'connect.php';
                     <td></td>
                     <td>หักออกก่อน </td>
                     <td>500</td>
-
                     <td>รวมรายการหัก </td>
                     <td>600 บาท</td>
-
-
                   </tr>
                   <tr>
                     <td>ค่าล่วงเวลา 1.5 / OT 1.5 </td>
@@ -158,7 +152,7 @@ require 'connect.php';
                     <td>500 บาท</td>
                     <td></td>
                     <td></td>
-                    <th></th>
+
                   </tr>
                   <tr>
                     <td>ค่าล่วงเวลา 2 / OT 2 </td>
@@ -215,7 +209,7 @@ require 'connect.php';
                     <td>600 บาท</td>
                   </tr>
                   <tr>
-                    <td></td>
+                    <td><b>รายการหัก</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -224,52 +218,158 @@ require 'connect.php';
                     <td>600 บาท</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
                     <td>ภาษี</td>
                     <td> 700 บาท</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td>Year to Date กองทุนส่วนนายจ้าง</td>
                     <td>600 บาท</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
                     <td>ประกันสังคม</td>
                     <td>700 บาท</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td>Year to Date ประกันสังคม</td>
                     <td>600 บาท</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
                     <td>กองทุนสำรองเลี้ยงชีพ</td>
                     <td>700 บาท</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td>Year to Date รายได้สะสม</td>
                     <td>600 บาท</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
                     <td>ค่าโอนเงิน</td>
                     <td>700 บาท</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td>Year to Date รายได้สุทธิสะสม</td>
                     <td>600 บาท</td>
                   </tr>
 
+                </table> -->
+                <table class="table">
+                  <tr style="border : 3px solid;">
+                    <td>
+                      <table>
+                        <tr>
+                          <td>รหัสพนักงาน</td><td>A001</td>
+                        </tr>
+                        <tr>
+                          <td>ชื่อ</td><td>ฟลุ๊คสุดหล่อ หมาตายควายตลึง</td>
+                        </tr>
+                        <tr>
+                          <td>วันที่เริ่มงาน</td><td>09/05/2017</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                      <table>
+                        <tr>
+                          <td>รอบวันที่</td><td>19/01/2017</td>
+                        </tr>
+                        <tr>
+                          <td>วันที่จ่าย</td><td>19/01/2017</td>
+                        </tr>
+                        <tr>
+                          <td>แผนก</td><td>ผู้บริหาร</td>
+                        </tr>
+                        <tr>
+                          <td>รูปแบบการจ่าย</td><td>เงินสด</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  style="border : 3px solid;" rowspan="2">
+                      <table>
+                        <th>รายได้<br>Income</th><th></th><th>บาท<br>baht</th>
+                        <tr>
+                          <td>เงินเดือน/Salary</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                        <tr>
+                          <td>ค่าล่วงเวลา1.5/OT1.5</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                        <tr>
+                          <td>ค่าล่วงเวลา2/OT2</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                        <tr>
+                          <td>ค่าล่วงเวลา3/OT3</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                        <tr>
+                          <td>วันหยุดประเพณี</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                        <tr>
+                          <td>เบี้ยขยัน</td><td>5 วัน</td><td>200</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td  style="border : 3px solid;" rowspan="2">
+                      <table>
+                        <th>รายการหัก<br>deducation</th><th>บาท<br>baht</th>
+                        <tr>
+                          <td>หักเบิกก่อน</td><td>500</td>
+                        </tr>
+                        <tr>
+                          <td>ภาษี</td><td>700</td>
+                        </tr>
+                        <tr>
+                          <td>ประกันสังคม</td><td>700</td>
+                        </tr>
+                        <tr>
+                          <td>กองทุนสำรองเลี้ยงชีพ</td><td>700</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td  style="border : 3px solid;" >
+                      <table>
+                        <th>สรุป<br>Summary</th><th>บาท<br>baht</th>
+                        <tr>
+                          <td>รวมรายได้</td><td>100000</td>
+                        </tr>
+                        <tr>
+                          <td>รวมรายการหัก</td><td>600</td>
+                        </tr>
+                        <tr>
+                          <td><br><br><br><b>รายได้สุทธิ</b></td><td><br><br><br><u>99600</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  style="border : 3px solid;">
+                      <table>
+                        <tr>
+                          <td>Year to dateภาษี</td><td>600 บาท</td>
+                        </tr>
+                        <tr>
+                          <td>Year to dateกองทุนส่วนสมาชิก</td><td>600 บาท</td>
+                        </tr>
+                        <tr>
+                          <td>Year to dateกองทุนส่วนนายจ้าง</td><td>600 บาท</td>
+                        </tr>
+                        <tr>
+                          <td>Year to dateประกันสังคม</td><td>600 บาท</td>
+                        </tr>
+                        <tr>
+                          <td>Year to dateรายได้สะสม</td><td>600 บาท</td>
+                        </tr>
+                        <tr>
+                          <td>Year to dateรายได้สุทธิ</td><td>600 บาท</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
-
-
-
-
-
-
-
-
-
                 <?php
                 $check++;
               ?>
