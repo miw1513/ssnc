@@ -69,7 +69,7 @@ body{
 
 
         ?>
-         <div style="height:850px;">
+         <div >
         <?php
         for ($u=0;$u<2;$u++){
           $sql_select_print = $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '".$printer[$i+$u]."' ";
@@ -266,8 +266,8 @@ body{
    header('Location:show_bill.php');
     }
    ?>
-</div>
-<button type="button" onclick="window.print()">sdsd</button>
+</div><br><br>
+<center><button type="button" onclick="window.print()">Print</button></center>
 
 
   </body>
