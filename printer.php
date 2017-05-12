@@ -32,6 +32,7 @@ require 'connect.php';
 <body >
   <div id="div1">
     <script type="text/javascript">
+      window.print()
     var statusOnClick = true
 
     function printContent(el){
@@ -70,7 +71,7 @@ require 'connect.php';
             <div >
               <?php
 
-                $sql_select_print = $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '".$printer[$i]."' ";
+                $sql_select_print = $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID INNER JOIN department ON employees.Dep_ID = department.Dep_ID WHERE Emp_ID = '".$printer[$i]."' ";
                 $query_sql_select = $connect->query($sql_select_print);
                 $select_print = $query_sql_select->fetch_assoc();
 
@@ -255,18 +256,19 @@ require 'connect.php';
                   </tr>
 
                 </table> -->
+              <center>
                 <table class="table">
                   <tr style="border : 3px solid;">
                     <td>
                       <table>
                         <tr>
-                          <td>รหัสพนักงาน</td><td>A001</td>
+                          <td>รหัสพนักงาน</td><td><?php echo $select_print['Emp_ID']; ?></td>
                         </tr>
                         <tr>
-                          <td>ชื่อ</td><td>ฟลุ๊คสุดหล่อ หมาตายควายตลึง</td>
+                          <td>ชื่อ</td><td><?php echo $select_print['Emp_Name']; ?></td>
                         </tr>
                         <tr>
-                          <td>วันที่เริ่มงาน</td><td>09/05/2017</td>
+                          <td>วันที่เริ่มงาน</td><td><?php echo $select_print['Emp_StrDate']; ?></td>
                         </tr>
                       </table>
                     </td>
@@ -275,13 +277,13 @@ require 'connect.php';
                     <td>
                       <table>
                         <tr>
-                          <td>รอบวันที่</td><td>19/01/2017</td>
+                          <td>รอบวันที่</td><td><?php echo $select_print['MonthYear']; ?></td>
                         </tr>
                         <tr>
-                          <td>วันที่จ่าย</td><td>19/01/2017</td>
+                          <td>วันที่จ่าย</td><td><?php echo date("d-m-Y"); ?></td>
                         </tr>
                         <tr>
-                          <td>แผนก</td><td>ผู้บริหาร</td>
+                          <td>แผนก</td><td><?php echo $select_print['Dep_Name']; ?></td>
                         </tr>
                         <tr>
                           <td>รูปแบบการจ่าย</td><td>เงินสด</td>
@@ -294,22 +296,19 @@ require 'connect.php';
                       <table>
                         <th>รายได้<br>Income</th><th></th><th>บาท<br>baht</th>
                         <tr>
-                          <td>เงินเดือน/Salary</td><td>5 วัน</td><td>200</td>
+                          <td>เงินเดือน/Salary</td><td><?php echo $select_print['Time_Work']; ?></td><td><?php echo $select_print['Salary_Money']; ?></td>
                         </tr>
                         <tr>
-                          <td>ค่าล่วงเวลา1.5/OT1.5</td><td>5 วัน</td><td>200</td>
+                          <td>ค่าล่วงเวลา1.5/OT1.5</td><td><?php echo $select_print['Time_OT15']; ?></td><td><?php echo $select_print['Salary_OT15']; ?></td>
                         </tr>
                         <tr>
-                          <td>ค่าล่วงเวลา2/OT2</td><td>5 วัน</td><td>200</td>
+                          <td>ค่าล่วงเวลา2/OT2</td><td><?php echo $select_print['Time_OT20']; ?></td><td><?php echo $select_print['Salary_OT20']; ?></td>
                         </tr>
                         <tr>
-                          <td>ค่าล่วงเวลา3/OT3</td><td>5 วัน</td><td>200</td>
+                          <td>ค่าล่วงเวลา3/OT3</td><td><?php echo $select_print['Time_OT30']; ?></td><td><?php echo $select_print['Salary_OT30']; ?></td>
                         </tr>
                         <tr>
-                          <td>วันหยุดประเพณี</td><td>5 วัน</td><td>200</td>
-                        </tr>
-                        <tr>
-                          <td>เบี้ยขยัน</td><td>5 วัน</td><td>200</td>
+                          <td>เบี้ยขยัน</td><td></td><td><?php echo $select_print['Salary_Diligent']; ?></td>
                         </tr>
                       </table>
                     </td>
@@ -317,16 +316,16 @@ require 'connect.php';
                       <table>
                         <th>รายการหัก<br>deducation</th><th>บาท<br>baht</th>
                         <tr>
-                          <td>หักเบิกก่อน</td><td>500</td>
+                          <td>หักเบิกก่อน</td><td><?php echo $select_print['Salary_Paid']; ?></td>
                         </tr>
                         <tr>
-                          <td>ภาษี</td><td>700</td>
+                          <td>ภาษี</td><td><?php echo $select_print['Salary_Vat']; ?></td>
                         </tr>
                         <tr>
-                          <td>ประกันสังคม</td><td>700</td>
+                          <td>ประกันสังคม</td><td><?php echo $select_print['Salary_Insurance']; ?></td>
                         </tr>
                         <tr>
-                          <td>กองทุนสำรองเลี้ยงชีพ</td><td>700</td>
+                          <td>กองทุนสำรองเลี้ยงชีพ</td><td><?php echo $select_print['Salary_Fund']; ?></td>
                         </tr>
                       </table>
                     </td>
@@ -334,16 +333,18 @@ require 'connect.php';
                       <table>
                         <th>สรุป<br>Summary</th><th>บาท<br>baht</th>
                         <tr>
-                          <td>รายได้</td><td>5000</td>
+                          <td>รายได้</td><td><?php echo $select_print['Salary_Money']*$select_print['Time_Work']; ?></td>
                         </tr>
                         <tr>
-                          <td>รวมรายได้</td><td>5000</td>
+                          <?php $totalSalary = (($select_print['Salary_Money']*$select_print['Time_Work']) + $select_print['Salary_OT15'] + $select_print['Salary_OT20'] + $select_print['Salary_OT30'] + +$select_print['Salary_Diligent']); ?>
+                          <td>รวมรายได้</td><td><?php echo $totalSalary; ?></td>
                         </tr>
                         <tr>
-                          <td>รวมรายการหัก</td><td>600</td>
+                          <?php $totalPaid = $select_print['Salary_Paid'] + $select_print['Salary_Fund'] + $select_print['Salary_Vat'] + $select_print['Salary_Insurance']; ?>
+                          <td>รวมรายการหัก</td><td><?php echo $totalPaid; ?></td>
                         </tr>
                         <tr>
-                          <td><br><br><br><b>รายได้สุทธิ</b></td><td><br><br><br><u>9400</td>
+                          <td><br><br><br><b>รายได้สุทธิ</b></td><td><br><br><br><u><?php echo $select_print['Salary_Balance']; ?></td>
                         </tr>
                       </table>
                     </td>
@@ -352,27 +353,52 @@ require 'connect.php';
                     <td  style="border : 3px solid;">
                       <table>
                         <tr>
-                          <td>Year to dateภาษี</td><td>600 บาท</td>
+                          <?php
+                            $ID = $select_print['Emp_ID'];
+                            $sqlsum = "SELECT SUM(Salary_Vat) FROM salary WHERE Salary_ID = '$ID' GROUP BY Salary_ID";
+                            $result = $connect->query($sqlsum);
+                            $sum = $result->fetch_assoc();
+                           ?>
+                          <td>Year to date ภาษี</td><td><?php echo $sum['SUM(Salary_Vat)']; ?></td>
                         </tr>
                         <tr>
-                          <td>Year to dateกองทุนส่วนสมาชิก</td><td>600 บาท</td>
+                          <?php
+                            $sqlsum = "SELECT SUM(Salary_Fund) FROM salary WHERE Salary_ID = '$ID' GROUP BY Salary_ID";
+                            $result = $connect->query($sqlsum);
+                            $sum = $result->fetch_assoc();
+                           ?>
+                          <td>Year to date กองทุนสำรองเลี้ยงชีพ</td><td><?php echo $sum['SUM(Salary_Fund)']; ?></td>
                         </tr>
                         <tr>
-                          <td>Year to dateกองทุนส่วนนายจ้าง</td><td>600 บาท</td>
+                          <?php
+                            $sqlsum = "SELECT SUM(Salary_Insurance) FROM salary WHERE Salary_ID = '$ID' GROUP BY Salary_ID";
+                            $result = $connect->query($sqlsum);
+                            $sum = $result->fetch_assoc();
+                           ?>
+                          <td>Year to date ประกันสังคม</td><td><?php echo $sum['SUM(Salary_Insurance)']; ?></td>
                         </tr>
                         <tr>
-                          <td>Year to dateประกันสังคม</td><td>600 บาท</td>
+                          <?php
+                            $sqlsum = "SELECT SUM(Time_Work) FROM time WHERE Time_ID = '$ID' GROUP BY Time_ID";
+                            $result = $connect->query($sqlsum);
+                            $sum = $result->fetch_assoc();
+                            $salary = $select_print['Salary_Money']*$sum['SUM(Time_Work)'];
+                           ?>
+                          <td>Year to date รายได้สะสม</td><td><?php echo $salary; ?></td>
                         </tr>
                         <tr>
-                          <td>Year to dateรายได้สะสม</td><td>600 บาท</td>
-                        </tr>
-                        <tr>
-                          <td>Year to dateรายได้สุทธิ</td><td>600 บาท</td>
+                          <?php
+                            $sqlsum = "SELECT SUM(Salary_Balance) FROM salary WHERE Salary_ID = '$ID' GROUP BY Salary_ID";
+                            $result = $connect->query($sqlsum);
+                            $sum = $result->fetch_assoc();
+                           ?>
+                          <td>Year to date รายได้สุทธิ</td><td><?php echo $sum['SUM(Salary_Balance)']; ?></td>
                         </tr>
                       </table>
                     </td>
                   </tr>
                 </table>
+              </center>
                 <?php
                 $check++;
               ?>
@@ -391,7 +417,7 @@ require 'connect.php';
           ?>
 
         </div>
-          <center><button id="btn" onclick="printContent('div1')" >Print</button></center>
+          <!-- <center><button id="btn" onclick="printContent('div1')" >Print</button></center> -->
 
         <?php
       }

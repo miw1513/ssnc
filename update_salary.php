@@ -313,7 +313,7 @@
         $Salary_Fund = $Salary_Money*0.03;
       }
       $Salary_Balance = 0;
-      $Salary_Balance = ($Salary_Money*$InTimeWork) + ($OT15 + $OT20 + $OT30) - ($Salary_Vat + $Salary_Insurance + $Salary_Fund + $Paid) ;
+      $Salary_Balance = ($Salary_Money*$InTimeWork) + ($OT15 + $OT20 + $OT30 + $Salary_Diligent) - ($Salary_Vat + $Salary_Insurance + $Salary_Fund + $Paid) ;
       //Update Salary Table
       $sqlsalary = "UPDATE salary SET
                     Salary_Balance = '$Salary_Balance',
