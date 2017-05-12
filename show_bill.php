@@ -34,7 +34,7 @@
               <div id="table-scroll" style="height:450px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
                   <tr>
-                    <th><input type="checkbox" id="checkAll" value=""> All</th>
+                    <th><input type="checkbox" id="checkAll" onclick="toggle(this);" value=""> All</th>
                     <th>รหัสพนักงาน</th>
                     <th>ชื่อ - นามสกุล</th>
                     <th>แผนก</th>
@@ -45,7 +45,15 @@
                     <th>OT*3.0</th>
                     <th>รายได้สุทธิ</th>
                   </tr>
-
+                  <script type="text/javascript">
+                  function toggle(source) {
+                    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i] != source)
+                            checkboxes[i].checked = source.checked;
+                    }
+                  }
+                  </script>
                   <?php
                   $SumSalary = 0;
                   if($_POST){

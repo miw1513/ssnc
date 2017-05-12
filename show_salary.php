@@ -6,6 +6,7 @@ require 'template/header.php';
 <form method="GET">
   <div class="field">
   <p class="control">
+    <br>
     <span class="select">
 <select name="monthyear">
   <?php
@@ -25,9 +26,9 @@ require 'template/header.php';
     </span>
   </p>
               </div>
-                <button class="button is-primary" value="ส่งข้อมูล">Submit</button>
+                <button class="button is-primary" value="ส่งข้อมูล">แสดงข้อมูล</button>
     </form>
-
+<br>
 
 <?php
  if (isset($_GET['monthyear'])){
