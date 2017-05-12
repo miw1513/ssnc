@@ -13,7 +13,8 @@
         <div class="column">
           <h1 class="title">การจ่ายเงินเดือนของพนักงาน</h1>
           <form action="#" method="post">
-          <select name="monthyear" class="input is-small" style="width : 50%;">
+            <span class="select">
+          <select name="monthyear" style="width : 100%">
           <?php
             $sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
             $query_select_month = $connect->query($sql_select_month);
@@ -24,12 +25,13 @@
             }
              ?>
             </select>
-            <input type="submit" value="หาข้อมูล" class="button is-primary is-outlined is-small">
+            </span>
+            <input type="submit" value="แสดงข้อมูล" class="button is-primary is-outlined">
             </form>
             <br>
             <form method="GET" action="printer.php">
             <div id="table-wrapper">
-              <div id="table-scroll" style="height:500px;">
+              <div id="table-scroll" style="height:450px;">
                 <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
                   <tr>
                     <th><input type="checkbox" id="checkAll" value=""> All</th>
@@ -45,12 +47,15 @@
                   </tr>
 
                   <?php
+                  $SumSalary = 0;
                   if($_POST){
                   $monthyear =  $_POST['monthyear'];
+
                   $sql = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID INNER JOIN department ON employees.Dep_ID = department.Dep_ID
                           WHERE salary.MonthYear = '$monthyear' AND time.MonthYear = '$monthyear'";
                   $result = $connect->query($sql);
                   while($row = $result->fetch_array()){
+                    $SumSalary += $row['Salary_Balance'];
                     ?>
 
                     <tr>
@@ -71,9 +76,16 @@
                 ?>
               </table>
             </div>
-
-           <button  class="button is-primary is-outlined"> <i class="fa fa-print"></i>&nbsp;&nbsp;ปริ้นเงินเดือน</button>
-
+          </div>
+          <br>
+          <button  class="button is-primary is-outlined"> <i class="fa fa-print"></i>&nbsp;&nbsp;ปริ้นเงินเดือน</button>
+          <div style="float:right;">
+            <b>
+              <div class="subtitle">
+             เงินเดือนรวม :
+             <?php echo $SumSalary; ?> บาท
+             </div>
+           </b>
           </div>
         </form>
         </div>

@@ -36,7 +36,7 @@
                      ?>
                   </select>
                 </span>
-                <input type="submit" name="show" value="ดูข้อมูล" class="button is-primary is-outlined is-small">
+                <input type="submit" name="show" value="ดูข้อมูล" class="button is-primary is-outlined">
               </div>
             </div>
             <?php

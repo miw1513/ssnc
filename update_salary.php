@@ -40,9 +40,7 @@
 
             <?php if (isset($_GET['monthyear'])) {
               $_SESSION['MonthYear'] = $_GET['monthyear'];
-            }
             ?>
-
 
         <div id="table-wrapper">
           <div id="table-scroll">
@@ -116,7 +114,6 @@
             }
 
            ?>
-
           <div class="columns" >
             <div class="column is-half">
               <label class="label">ภาษี</label>
@@ -267,6 +264,9 @@
               <input type="submit" name="" value="บันทึกข้อมูล" class="button is-primary is-outlined">
             </div>
           </div>
+          <?php
+          }
+          ?>
         </form>
       </div>
       </div>
