@@ -23,7 +23,7 @@ require 'connect.php';
      </script>
 <style >
 body{
-  font-size:9.5px;
+  font-size:9px;
 }
 .table {
   width:700px;
