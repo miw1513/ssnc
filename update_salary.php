@@ -201,7 +201,7 @@
               </div>
               <div class="column is-half">
                 <?php echo $Time_Work ?>
-                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTimeWork" value="" class="input is-small" style="width : 40%" required min=0> วัน
+                <?php if ($Emp_Work == "รายวัน") :?> วัน <input type="number" name="InTimeWork" value="" class="input is-small" style="width : 40%" required min=0 placeholder="จำนวนวัน"> วัน
                 <?php else: ?> เดือน
                 <?php endif; ?>
               </div>
@@ -212,7 +212,7 @@
               </div>
               <div class="column is-half">
                 <?php echo $Salary_Paid; ?> บาท
-                <input type="number" name="Paid" value="" style="width : 40%" class="input is-small" autofocus="" required min=0> บาท
+                <input type="number" name="Paid" value="" style="width : 40%" class="input is-small" autofocus="" required min=0 placeholder="จำนวนเงินเบิก"> บาท
               </div>
             </div>
             <div class="columns">
@@ -222,7 +222,7 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT15; ?> ชม. =
                  <?php echo $Salary_OT15; ?> บาท
-                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
+                 <input type="number" name="InOT15" value="" style="width : 15%" class="input is-small" autofocus="" required min=0 placeholder="จำนวนชั่วโมง"> ชั่วโมง
               </div>
             </div>
             <div class="columns">
@@ -232,7 +232,7 @@
               <div class="column is-two-third">
                 <?php echo $Time_OT20; ?>  ชม. =
                 <?php echo $Salary_OT20; ?> บาท
-                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
+                <input type="number" name="InOT20" value="" style="width : 15%" class="input is-small" autofocus="" required min=0 placeholder="จำนวนชั่วโมง"> ชั่วโมง
               </div>
             </div>
             <div class="columns">
@@ -242,7 +242,7 @@
               <div class="column is-two-third">
                  <?php echo $Time_OT30; ?>  ชม. =
                  <?php echo $Salary_OT30; ?> บาท
-                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus="" required min=0> ชั่วโมง
+                <input type="number" name="InOT30" value="" style="width : 15%" class="input is-small" autofocus="" required min=0 placeholder="จำนวนชั่วโมง"> ชั่วโมง
               </div>
             </div>
             <div class="columns">
@@ -251,7 +251,7 @@
               </div>
               <div class="column is-two-third">
                  <?php echo $Salary_Diligent; ?>  บาท
-                <input type="number" name="InDiligent" value="" style="width : 30%" class="input is-small" autofocus="" required min=0> บาท
+                <input type="number" name="InDiligent" value="" style="width : 30%" class="input is-small" autofocus="" required min=0 placeholder="จำนวนเงิน"> บาท
               </div>
             </div>
             <div class="columns">

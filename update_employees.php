@@ -70,7 +70,7 @@
                 <label class="label">ชื่อพนักงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" >
+                <input type="text" name="Emp_Name" value="<?php echo "$Name"; ?>" class="input is-small"  style="width : 60%" placeholder="ชื่อ-นามสกุล">
               </div>
             </div>
             <div class="columns">
@@ -78,7 +78,7 @@
                 <label class="label">เลขประจำตัวประชาชน</label>
               </div>
               <div class="column is-three-quarters">
-                <input type="text" name="Emp_NID" value="<?php echo $NID; ?>" class="input is-small"  style="width : 60%" >
+                <input type="text" name="Emp_NID" value="<?php echo $NID; ?>" class="input is-small"  size="13" style="width : 60%" placeholder="เลขประจำตัวประชาชน 13 หลัก">
               </div>
             </div>
             <div class="columns">
@@ -86,7 +86,7 @@
                 <label class="label">วันเดือนปีเกิด</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="date" name="Emp_DOB"  value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%" >
+                  <input type="date" name="Emp_DOB"  value="<?php echo $DOB; ?>" class="input is-small"  style="width : 60%">
               </div>
             </div>
             <div class="columns">
@@ -94,7 +94,7 @@
                 <label class="label">ประเภทการทำงาน</label>
               </div>
               <div class="column is-three-quarters">
-                <select name="Emp_Work" class="input is-small" required="" style="width : 60%">
+                <select name="Emp_Work" class="input is-small" required="" style="width : 60%" >
                   <?php if ($Work == "รายเดือน"): ?>
                     <option value="รายเดือน">รายเดือน</option>
                     <option value="รายวัน">รายวัน</option>
@@ -128,7 +128,7 @@
                 <label class="label">เงินเดือน</label>
               </div>
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Salary; ?>" name="Emp_Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" >
+                  <input type="number" value="<?php echo $Salary; ?>" name="Emp_Salary" min="0" step="0.01" class="input is-small"  style="width : 60%" placeholder="จำนวนเงินเดือน">
 
               </div>
               <div class="column is-one-quarter">
@@ -140,7 +140,7 @@
                 <label class="label">โรคประจำตัว</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" >
+                  <input type="text" name="Emp_Disease" value="<?php echo $Disease; ?>" class="input is-small"  style="width : 60%" placeholder="โรคประจำตัว">
               </div>
             </div>
             <div class="columns">
@@ -149,7 +149,7 @@
               </div>
 
               <div class="column is-half">
-                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" >
+                  <input type="number" value="<?php echo $Child; ?>" name="Emp_Child" min="0" class="input is-small"  style="width : 60%" placeholder="จำนวนบุตร">
               </div>
               <div class="column is-one-quarter">
                   <label class="label">คน</label>
@@ -212,7 +212,7 @@
                 <label class="label">โทรศัพท์</label>
               </div>
               <div class="column is-three-quarters">
-                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" >
+                  <input type="tel" name="Emp_Tel" value="<?php echo $Tel; ?>" class="input is-small"  style="width : 60%" placeholder="เบอร์โทรศัพท์ 10 หลัก">
               </div>
             </div>
             <div class="columns">
