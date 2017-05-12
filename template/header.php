@@ -31,7 +31,7 @@
     <a class="nav-item is-tab is-hidden-mobile is-active" href = "home.php">SSNC-Civil</a>
     <a class="nav-item is-tab is-hidden-mobile" href="show_employees.php">จัดการข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-mobile" href="update_salary.php">จัดการเงินเดือนพนักงาน</a>
-    <a class="nav-item is-tab is-hidden-mobile">พิมพ์เงินเดือน</a>
+    <a class="nav-item is-tab is-hidden-mobile" href="show_bill.php">พิมพ์เงินเดือน</a>
   </div>
 
   <span class="nav-toggle">
@@ -43,7 +43,7 @@
     <a class="nav-item is-tab is-hidden-tablet is-active" href = "home.php">SSNC-Civil</a>
     <a class="nav-item is-tab is-hidden-tablet" href="insert_employees.php">จัดการข้อมูลพนักงาน</a>
     <a class="nav-item is-tab is-hidden-tablet" href="update_salary.php">จัดการเงินเดือนพนักงาน</a>
-    <a class="nav-item is-tab is-hidden-tablet">พิมพ์เงินเดือน</a>
+    <a class="nav-item is-tab is-hidden-tablet" href="show_bill.php">พิมพ์เงินเดือน</a>
     <a class="nav-item is-tab"><i class="fa fa-user"></i> &nbsp;<?php echo $_SESSION['username']; ?></a>
     <a class="nav-item is-tab" href="./logout.php">Log out</a>
   </div>
