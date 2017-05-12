@@ -39,19 +39,19 @@ require 'template/header.php';
     <th>Salary_ID</th>
     <th>ชื่อพนักงาน</th>
     <th>แผนก</th>
-    <th>Dep_ID</th>
-    <th>Salary_Money</th>
-    <th>Salary_Balance</th>
-    <th>Salary_OT15</th>
-    <th>Salary_OT20</th>
-    <th>Salary_OT30</th>
+    <th>ประเภท</th>
+    <th>เงินเดือน</th>
+    <th>รายได้สุทธิ</th>
+    <th>OT*1.5</th>
+    <th>OT*2.0</th>
+    <th>OT*3.0</th>
 
 
     <th></th>
   </tr>
 <?php
 
-   $sql_salary = 'SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID WHERE MonthYear = "'.$monthyear.'" ';
+   $sql_salary = 'SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID JOIN department ON employees.Dep_ID = department.Dep_ID WHERE MonthYear = "'.$monthyear.'" ';
    $query_salary = $connect->query($sql_salary);
 
    $sql_select_time = ' SELECT * FROM time WHERE MonthYear = "'.$monthyear.'" ';
@@ -67,7 +67,7 @@ require 'template/header.php';
     <tr style="border:2px solid black;">
       <td> <?php echo $select_salary['Salary_ID']; ?></td>
       <td> <?php echo $select_salary['Emp_Name']; ?></td>
-      <td> <?php echo $select_salary['Dep_ID']; ?></td>
+      <td> <?php echo $select_salary['Dep_Name']; ?></td>
       <td> <?php echo $select_salary['Emp_Work']; ?></td>
       <td> <?php echo $select_salary['Salary_Money']; ?></td>
       <td> <?php echo $select_salary['Salary_Balance']; ?></td>
@@ -82,14 +82,14 @@ require 'template/header.php';
     <tr id="<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
       <tr id="1<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
 
-        <th>Salary_Vat</th>
-        <th>Salary_insurance</th>
-        <th>Salary_Paid</th>
-        <th>Salary_Fund</th>
-        <th>Time_Work</th>
-        <th>Time_OT15</th>
-        <th>Time_OT20</th>
-        <th>Time_OT30</th>
+        <th>ภาษี</th>
+        <th>ประกันสังคม</th>
+        <th>ยอดเบิก</th>
+        <th>กองทุนเลี้ยงชีพ</th>
+        <th>จำนวนวันทำงาน</th>
+        <th>ชม.OT1.5</th>
+        <th>ชม.OT2.0</th>
+        <th>ชม.OT3.0</th>
       </tr>
       <tr id="2<?php echo $select_salary['Salary_ID']; ?>" style="display:none; ">
 
