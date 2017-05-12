@@ -16,25 +16,36 @@
     <div class="columns">
       <div class="column is-one-third">
         <h1 class="title">จัดการเงินเดือนของพนักงาน</h1>
-        <div id="table-wrapper">
-          <div id="table-scroll">
-            <select name="monthyear" class="input is-small" style="width : 60%;">
-            <?php
 
+            <form class="" action="" method="get">
+              <span class="select">
+
+            <select name="monthyear"  id = "monthyear" style="width : 100%;" >
+            <?php
             $sql_select_month = 'SELECT DISTINCT MonthYear FROM salary ';
             $query_select_month = $connect->query($sql_select_month);
 
             while ($select_month = $query_select_month->fetch_assoc()){
             ?>
 
-              <option values="<?php echo $select_month['MonthYear']; ?>"><?php echo $select_month['MonthYear']; ?></option>
+            <option values="<?php echo $select_month['MonthYear']; ?>"><a href="?monthyear=<?php echo $select_month['MonthYear']; ?>"><?php echo $select_month['MonthYear']; ?></a></option>
 
             <?php
             }
-            $monthyear = $_GET['monthyear'];
              ?>
             </select>
-            <button class="button is-primary is-outlined is-small">ส่งข้อมูล</button>
+            </span>
+            <input type="submit" name="" class="button is-primary is-outlined" value="ส่งข้อมูล">
+            </form>
+
+            <?php if (isset($_GET['monthyear'])) {
+              $_SESSION['MonthYear'] = $_GET['monthyear'];
+            }
+            ?>
+
+
+        <div id="table-wrapper">
+          <div id="table-scroll">
             <form class="" action="" method="post">
         <table  class="table" style="border : 1px solid;border-color : #eeeeee;">
           <tr>
@@ -42,12 +53,12 @@
             <th>ชื่อ - นามสกุล</th>
           </tr>
           <?php
-            $sql = "SELECT * FROM employees";
+            $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000";
             $result = $connect->query($sql);
             while($row = $result->fetch_array()){
           ?>
             <tr>
-            <td><a href="?ID=<?php echo $row['Emp_ID']; ?>"><?php echo $row['Emp_ID']; ?></a></td>
+            <td><a href="?ID=<?php echo $row['Emp_ID']; ?>&monthyear=<?php echo $_SESSION['MonthYear'] ?>"><?php echo $row['Emp_ID']; ?></a></td>
             <td><?php echo $row['Emp_Name']; ?></td>
             </tr>
           <?php
@@ -76,10 +87,11 @@
             $Time_OT30 ="";
             $IMG ="";
             $Salary_Diligent="";
-            if ($_GET) {
+
+            if (isset($_GET['ID'])) {
               $ID = $_GET['ID'];
-              $monthyear = date("my");
-              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = 'May-2017'";
+              $monthyear = $_GET['monthyear'];
+              $sqlselect = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID INNER JOIN time ON salary.Salary_ID=time.Time_ID WHERE Emp_ID = '$ID' AND salary.MonthYear = '$monthyear'";
               $result = $connect->query($sqlselect);
               while($row = $result->fetch_array()){
                 $Emp_Name = $row['Emp_Name'];
@@ -105,7 +117,7 @@
 
            ?>
 
-          <div class="columns">
+          <div class="columns" >
             <div class="column is-half">
               <label class="label">ภาษี</label>
             </div>
@@ -281,6 +293,9 @@
         $OT30 = ($Salary_Money/8) * $InOT30* 3.0;
         $Salary_Vat = $Salary_Money*$InTimeWork*0.03;
         $Salary_Insurance = $Salary_Money*$InTimeWork*0.05;
+        if ($Salary_Insurance > 750) {
+            $Salary_Insurance = 750;
+        }
         $Salary_Fund = $Salary_Money*$InTimeWork*0.03;
       }
       else {
@@ -290,6 +305,9 @@
         $OT30 = ($Salary_Money/30/8) * $InOT30 * 3.0;
         $Salary_Vat = $Salary_Money*0.03;
         $Salary_Insurance = $Salary_Money*0.05;
+        if ($Salary_Insurance > 750) {
+            $Salary_Insurance = 750;
+        }
         $Salary_Fund = $Salary_Money*0.03;
       }
       $Salary_Balance = 0;
@@ -315,7 +333,7 @@
                   Time_OT30 = '$InOT30'
                   WHERE Time_ID = '$ID'";
     $connect->query($sqltime);
-    header("Refresh:0; url=update_salary.php?ID=$ID");
+    header("Refresh:0; url=update_salary.php?ID=$ID&monthyear=$monthyear");
     }
    ?>
 </html>

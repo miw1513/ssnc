@@ -192,8 +192,6 @@
     <br><br><br>
     <?php
     if ($_POST) {
-
-      $ID = $_POST['Emp_ID'];
       $Name = $_POST['Emp_Name'];
       $NID = $_POST['NID'];
       $DOB = $_POST['Emp_DOB'];

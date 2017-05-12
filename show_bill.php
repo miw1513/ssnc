@@ -72,7 +72,7 @@
                 ?>
               </table>
             </div>
-            
+
            <button  class="button is-primary is-outlined"> <i class="fa fa-print"></i>&nbsp;&nbsp;ปริ้นเงินเดือน</button>
 
           </div>
