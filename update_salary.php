@@ -9,6 +9,8 @@
     <?php
       include 'template/header.php';
     ?>
+    <?php if (  $_SESSION['login'] == 'yes'){
+    ?>
   <div class="container">
     <br><br>
     <div class="columns">
@@ -257,6 +259,13 @@
       </div>
       </div>
     </div>
+    <?php }
+    else {
+      echo "<script type='text/javascript'>";
+      echo "window.location = 'login.php'";
+      echo "</script>";
+    }
+    ?>
   </body>
   <?php
     if($_POST){
@@ -295,7 +304,7 @@
                     Salary_Vat = '$Salary_Vat',
                     Salary_Insurance = '$Salary_Insurance',
                     Salary_Fund = '$Salary_Fund',
-                    Salary_Diligent = '$Salary_Diligent' 
+                    Salary_Diligent = '$Salary_Diligent'
                     WHERE Salary_ID = '$ID'";
       $connect->query($sqlsalary);
       //Update Time Table
