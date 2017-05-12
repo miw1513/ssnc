@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <?php if (  $_SESSION['login'] == 'yes'){
+    ?>
     <?php include('template/header.php'); ?>
     <div class="container">
     <br><br>
@@ -81,6 +83,13 @@
               <?php
                 }
               }
+                ?>
+                <?php }
+                else {
+                  echo "<script type='text/javascript'>";
+                  echo "window.location = 'login.php'";
+                  echo "</script>";
+                }
                 ?>
               </table>
             </div>

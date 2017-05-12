@@ -1,5 +1,6 @@
 <?php
   include 'connect.php';
+  if (  $_SESSION['login'] == 'yes'){
   $MonthYear = date("F-Y");
   $sql = "SELECT * FROM salary INNER JOIN time ON Salary_ID = Time_ID INNER JOIN employees ON Emp_ID = Salary_ID";
   $result = $connect->query($sql);
@@ -21,5 +22,11 @@
         $sqltime = "INSERT INTO time (Time_ID,MonthYear,Time_Work) VALUES ('$Time_ID','$MonthYear','1')";
         $connect->query($sqltime);
       }
+  }
+  }
+  else {
+    echo "<script type='text/javascript'>";
+    echo "window.location = 'login.php'";
+    echo "</script>";
   }
  ?>
