@@ -334,13 +334,16 @@ require 'connect.php';
                       <table>
                         <th>สรุป<br>Summary</th><th>บาท<br>baht</th>
                         <tr>
-                          <td>รวมรายได้</td><td>100000</td>
+                          <td>รายได้</td><td>5000</td>
+                        </tr>
+                        <tr>
+                          <td>รวมรายได้</td><td>5000</td>
                         </tr>
                         <tr>
                           <td>รวมรายการหัก</td><td>600</td>
                         </tr>
                         <tr>
-                          <td><br><br><br><b>รายได้สุทธิ</b></td><td><br><br><br><u>99600</td>
+                          <td><br><br><br><b>รายได้สุทธิ</b></td><td><br><br><br><u>9400</td>
                         </tr>
                       </table>
                     </td>
