@@ -1,6 +1,6 @@
 <?php
   include 'connect.php';
-  $MonthYear = "June-2017";
+  $MonthYear = date("F-Y");
   $sql = "SELECT * FROM salary INNER JOIN time ON Salary_ID = Time_ID INNER JOIN employees ON Emp_ID = Salary_ID";
   $result = $connect->query($sql);
   while ($row = $result->fetch_array()){

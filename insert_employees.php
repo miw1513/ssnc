@@ -22,6 +22,7 @@
                   $result = $connect->query($sqlid);
                   while($row = $result->fetch_array()){
                     echo $row['Emp_ID'] + 1;
+                    $ID = $row['Emp_ID'] + 1;
                   }
                 ?>
                 </b>
