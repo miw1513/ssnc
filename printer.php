@@ -19,7 +19,8 @@ require 'connect.php';
   }
   .table {
     width:700px;
-
+   border-style:double;
+   border:2px solid black;
 
   }
 
