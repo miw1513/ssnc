@@ -54,14 +54,13 @@ require 'template/header.php';
   </tr>
 <?php
 
-   $sql_salary = 'SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID JOIN department ON employees.Dep_ID = department.Dep_ID WHERE MonthYear = "'.$monthyear.'" ';
+   $sql_salary = "SELECT * FROM salary INNER JOIN employees ON salary.Salary_ID = employees.Emp_ID JOIN department ON employees.Dep_ID = department.Dep_ID JOIN time ON salary.Salary_ID = time.Time_ID WHERE salary.MonthYear = '$monthyear' AND time.MonthYear = '$monthyear'";
    $query_salary = $connect->query($sql_salary);
 
-   $sql_select_time = ' SELECT * FROM time WHERE MonthYear = "'.$monthyear.'" ';
-   $query_select_time = $connect->query($sql_select_time);
 
 
-   while ($select_salary = $query_salary->fetch_assoc() AND $select_time = $query_select_time->fetch_assoc()){
+
+   while ($select_salary = $query_salary->fetch_assoc() ){
 
 
 
@@ -100,10 +99,10 @@ require 'template/header.php';
         <td> <?php echo $select_salary['Salary_Insurance']; ?></td>
         <td> <?php echo $select_salary['Salary_Paid']; ?></td>
         <td> <?php echo $select_salary['Salary_Fund']; ?></td>
-        <td> <?php echo $select_time['Time_Work']; ?></td>
-        <td> <?php echo $select_time['Time_OT15']; ?></td>
-        <td> <?php echo $select_time['Time_OT20']; ?></td>
-        <td> <?php echo $select_time['Time_OT30']; ?></td>
+        <td> <?php echo $select_salary['Time_Work']; ?></td>
+        <td> <?php echo $select_salary['Time_OT15']; ?></td>
+        <td> <?php echo $select_salary['Time_OT20']; ?></td>
+        <td> <?php echo $select_salary['Time_OT30']; ?></td>
       </tr>
 
     </tr>
