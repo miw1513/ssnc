@@ -19,6 +19,22 @@
             <h1  class="title">ข้อมูลพนักงาน</h1>
             <div class="columns">
               <div class="column is-half">
+                <label class="label">เลือกแผนกที่ต้องการ</label>
+              </div>
+              <div class="column is-half">
+                <span class="select">
+                  <select>
+                    <?php
+
+
+                  <option value="">asdasd</option>
+                </select>
+                </select>
+              </div>
+
+            </div>
+            <div class="columns">
+              <div class="column is-half">
                 <label class="label">แสดงข้อมูลตามรหัสพนักงาน</label>
               </div>
               <div class="column is-half">
