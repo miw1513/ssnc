@@ -25,6 +25,7 @@
                 <form method="GET">
                 <span class="select">
                   <select name="sel_department">
+                     <option value="all_depart">เลือกทั้งหมด</option>
                     <?php
                     $sql_sel_dep = 'SELECT * FROM department';
                     $query_sel_dep = $connect->query($sql_sel_dep);
@@ -34,6 +35,7 @@
                   <?php
                   }
                    ?>
+
                 </select>
                 </span>
                 <input type="submit" name="department" value="เลือกแผนก" class="button is-primary is-outlined">
@@ -55,7 +57,12 @@
                   <select name="Emp_ID" style="width : 100%" readonly>
                     <?php
                       $invis = "visibility: hidden;";
+                      if ($_GET['sel_department'] == "all_depart"){
+                        $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
+                      }
+                      else {
                       $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000 AND Dep_ID = '".$_GET['sel_department']."' ORDER BY Emp_ID";
+                    }
                       $result = $connect->query($sql);
                       while($row = $result->fetch_array()){
                     ?>
