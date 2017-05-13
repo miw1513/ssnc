@@ -16,9 +16,11 @@
         $("#2"+divId).toggle();
     }
     $(document).ready(function(){
-
+          $("#div1text").fadeIn("slow");
           $("#div1box").fadeIn("slow");
+          $("#div2text").fadeIn("slow");
           $("#div2box").fadeIn("slow");
+          $("#div3text").fadeIn("slow");
           $("#div3box").fadeIn("slow");
 
 
