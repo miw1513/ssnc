@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <form class="" action="#" method="post" enctype="multipart/form-data">
+
       <?php
       include 'template/header.php'; ?>
       <?php if (  $_SESSION['login'] == 'yes'){
@@ -22,17 +22,30 @@
                 <label class="label">เลือกแผนกที่ต้องการ</label>
               </div>
               <div class="column is-half">
+                <form method="GET">
                 <span class="select">
-                  <select>
+                  <select name="sel_department">
                     <?php
+                    $sql_sel_dep = 'SELECT * FROM department';
+                    $query_sel_dep = $connect->query($sql_sel_dep);
+                    while ($sel_dep = $query_sel_dep->fetch_assoc()){
+                    ?>
+                  <option value="<?php echo $sel_dep['Dep_ID']; ?>"><?php echo $sel_dep['Dep_Name']; ?></option>
+                  <?php
+                  }
+                   ?>
+                </select>
+                </span>
+                <input type="submit" name="department" value="เลือกแผนก" class="button is-primary is-outlined">
 
 
-                  <option value="">asdasd</option>
-                </select>
-                </select>
+              </form>
               </div>
 
             </div>
+
+            <?php if (isset($_GET['sel_department'])){ ?>
+              <form class="" action="#" method="post" enctype="multipart/form-data">
             <div class="columns">
               <div class="column is-half">
                 <label class="label">แสดงข้อมูลตามรหัสพนักงาน</label>
@@ -42,7 +55,7 @@
                   <select name="Emp_ID" style="width : 100%" readonly>
                     <?php
                       $invis = "visibility: hidden;";
-                      $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000 ORDER BY Emp_ID";
+                      $sql = "SELECT * FROM employees WHERE Emp_ID <> 1000 AND Dep_ID = '".$_GET['sel_department']."' ORDER BY Emp_ID";
                       $result = $connect->query($sql);
                       while($row = $result->fetch_array()){
                     ?>
@@ -56,6 +69,7 @@
               </div>
             </div>
             <?php
+
             $Name = "";
             $NID = "";
             $DOB = "";
@@ -238,6 +252,7 @@
       </div>
     </form>
     <?php }
+  }
     else {
       echo "<script type='text/javascript'>";
       echo "window.location = 'login.php'";
