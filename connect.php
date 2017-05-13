@@ -1,10 +1,10 @@
 <?php
 ob_start();
 session_start();
-  $host = "198.46.144.201";
-  $user = "khaopodc_ssnc";
-  $pass = "khaopodc";
-  $db = "khaopodc_ssnc";
+  $host = "103.70.5.49";
+  $user = "ssnccivi_ssnc";
+  $pass = "ssnc1234";
+  $db = "ssnccivi_ssnc";
   $connect = new mysqli($host,$user,$pass,$db);
   $connect->set_charset('utf8');
   if ($connect->connect_errno) {

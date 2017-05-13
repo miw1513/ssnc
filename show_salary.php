@@ -1,6 +1,7 @@
 
 <?php
 require 'template/header.php';
+if (  $_SESSION['login'] == 'yes'){
  ?>
 <div class="container">
 <form method="GET">
@@ -115,7 +116,13 @@ require 'template/header.php';
  ?>
  </table>
 
-<?php  } ?>
+<?php  }
+else {
+  echo "<script type='text/javascript'>";
+  echo "window.location = 'login.php'";
+  echo "</script>";
+}
+?>
 
 
 
