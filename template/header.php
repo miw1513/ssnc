@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript">
     function toggleDiv(divId){
@@ -16,6 +15,14 @@
         $("#1"+divId).toggle();
         $("#2"+divId).toggle();
     }
+    $(document).ready(function(){
+
+          $("#div1box").fadeIn("slow");
+          $("#div2box").fadeIn("slow");
+          $("#div3box").fadeIn("slow");
+
+
+    });
 
     </script>
 
