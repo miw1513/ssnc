@@ -6,9 +6,10 @@ require 'template/header.php';
  ?>
 <div class="container">
 <form method="GET">
+  <br>
+  <h1 class="title">เงินเดือนของพนักงาน</h1>
   <div class="field">
   <p class="control">
-    <br>
     <span class="select">
 <select name="monthyear">
   <?php
@@ -28,7 +29,7 @@ require 'template/header.php';
     </span>
   </p>
               </div>
-                <button class="button is-primary" value="ส่งข้อมูล">แสดงข้อมูล</button>
+                <button class="button is-primary is-primary is-outlined" value="ส่งข้อมูล">แสดงข้อมูล</button>
     </form>
 <br>
 

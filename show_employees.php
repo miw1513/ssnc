@@ -30,7 +30,7 @@
                       $result = $connect->query($sql);
                       while($row = $result->fetch_array()){
                     ?>
-                        <option value=<?php echo $row['Emp_ID']; ?>><?php echo $row['Emp_ID']; ?></option>
+                        <option value=<?php echo $row['Emp_ID']; ?>><?php echo $row['Emp_ID']; ?> <?php echo $row['Emp_Name']; ?></option>
                     <?php
                       }
                      ?>
