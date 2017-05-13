@@ -38,7 +38,8 @@
 
                 </select>
                 </span>
-                <input type="submit" name="department" value="เลือกแผนก" class="button is-primary is-outlined">
+              
+                <button  class="button is-primary is-outlined">เลือกแผนก</button>
 
 
               </form>
