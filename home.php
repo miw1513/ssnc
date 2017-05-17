@@ -1,7 +1,7 @@
 
     <?php include ('template/header.php');
     if (  $_SESSION['login'] == 'yes'){
-      $sql_select_employees =  'SELECT COUNT(Emp_ID) as total FROM employees';
+      $sql_select_employees =  'SELECT COUNT(Emp_ID) as total FROM employees WHERE Emp_ID <> 1000';
       $query_select_employees = $connect->query($sql_select_employees);
       $count_member = $query_select_employees->fetch_assoc();
 
